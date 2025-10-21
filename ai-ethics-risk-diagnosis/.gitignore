@@ -1,0 +1,32 @@
+# Environment
+.env
+venv/
+env/
+*.pyc
+__pycache__/
+
+# Data
+data/guidelines/*.pdf
+data/target_services/*.json
+
+# Outputs
+outputs/reports/*.pdf
+outputs/evaluations/*.json
+outputs/visualizations/*.png
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Vector stores
+*.faiss
+chroma_db/

@@ -4,13 +4,10 @@ from typing import Dict, List
 from datetime import datetime
 import json
 from config.settings import LLM_MODEL, LLM_TEMPERATURE, OPENAI_API_KEY
-from prompts.report_generation import (
-    REPORT_GENERATION_PROMPT,
-    SUMMARY_PROMPT
-)
+from prompts.report_generation import REPORT_GENERATION_PROMPT, SUMMARY_PROMPT
 
 class ReportWriter:
-    """리포트 작성 에이전트"""
+    """리포트 작성 에이전트 - 진단 결과 및 권고사항 리포트 생성"""
     
     def __init__(self):
         self.llm = ChatOpenAI(
@@ -25,28 +22,20 @@ class ReportWriter:
         service_analyses: Dict[str, Dict],
         risk_assessments: Dict[str, Dict],
         improvement_suggestions: Dict[str, List[Dict]],
-        comparison_analysis: str,
-        references: List[Dict]
+        comparison_analysis: str
     ) -> str:
-        """
-        최종 보고서 생성
+        """최종 보고서 생성"""
         
-        Args:
-            services: 분석 대상 서비스 리스트
-            service_analyses: 서비스별 분석 결과
-            risk_assessments: 서비스별 리스크 평가
-            improvement_suggestions: 서비스별 개선안
-            comparison_analysis: 비교 분석 결과
-            references: 참고 문헌 리스트
-            
-        Returns:
-            마크다운 형식의 최종 보고서
-        """
-        print(f"\n{'='*50}")
-        print(f"📝 최종 보고서 작성 중...")
-        print(f"{'='*50}\n")
+        print(f"\n{'='*60}")
+        print(f"📝 최종 보고서 작성")
+        print(f"{'='*60}\n")
         
-        # 1. 메인 보고서 생성
+        # 1. 참고문헌 수집
+        all_references = []
+        for analysis in service_analyses.values():
+            all_references.extend(analysis.get('references', []))
+        
+        # 2. 메인 보고서 생성
         print(f"  ✍️  본문 작성 중...")
         main_report = self._generate_main_report(
             services=services,
@@ -54,14 +43,14 @@ class ReportWriter:
             risk_assessments=risk_assessments,
             improvement_suggestions=improvement_suggestions,
             comparison_analysis=comparison_analysis,
-            references=references
+            references=all_references
         )
         
-        # 2. Executive Summary 생성
+        # 3. Executive Summary 생성
         print(f"  📋 Executive Summary 작성 중...")
-        summary = self._generate_summary(main_report)
+        summary = self._generate_summary(main_report, services, risk_assessments)
         
-        # 3. 최종 조합
+        # 4. 최종 조합
         final_report = self._assemble_final_report(
             summary=summary,
             main_report=main_report,
@@ -70,7 +59,7 @@ class ReportWriter:
         
         print(f"\n  ✅ 보고서 작성 완료!")
         print(f"     - 총 길이: {len(final_report):,} 자")
-        print(f"{'='*50}\n")
+        print(f"     - 단어 수: {len(final_report.split()):,} 개")
         
         return final_report
     
@@ -85,29 +74,32 @@ class ReportWriter:
     ) -> str:
         """메인 보고서 생성"""
         
-        # 참고문헌 포맷팅
-        formatted_references = self._format_references(references)
+        formatted_refs = self._format_references(references)
         
-        # 프롬프트 생성
         prompt = REPORT_GENERATION_PROMPT.format(
             services=", ".join(services),
             service_analyses=json.dumps(service_analyses, ensure_ascii=False, indent=2),
             risk_assessments=json.dumps(risk_assessments, ensure_ascii=False, indent=2),
             improvement_suggestions=json.dumps(improvement_suggestions, ensure_ascii=False, indent=2),
-            comparison_analysis=comparison_analysis if comparison_analysis else "단일 서비스 분석으로 비교 분석 없음",
-            references=formatted_references
+            comparison_analysis=comparison_analysis if comparison_analysis else "단일 서비스 분석"
         )
         
         messages = [
-            SystemMessage(content="당신은 전문 리포트 작성자입니다."),
+            SystemMessage(content="당신은 전문 기술 리포트 작성자입니다. 명확하고 구조화되며 실행 가능한 보고서를 작성하세요."),
             HumanMessage(content=prompt)
         ]
         
         response = self.llm.invoke(messages)
         
-        return response.content
+        # 참고문헌 추가
+        return response.content + "\n\n---\n\n# 참고 문헌\n\n" + formatted_refs
     
-    def _generate_summary(self, report_content: str) -> str:
+    def _generate_summary(
+        self, 
+        report_content: str,
+        services: List[str],
+        risk_assessments: Dict
+    ) -> str:
         """Executive Summary 생성"""
         
         # 보고서가 너무 길면 일부만 사용
@@ -117,7 +109,7 @@ class ReportWriter:
         prompt = SUMMARY_PROMPT.format(report_content=report_content)
         
         messages = [
-            SystemMessage(content="당신은 전문 리포트 작성자입니다."),
+            SystemMessage(content="당신은 전문 리포트 작성자입니다. 핵심을 간결하고 명확하게 요약하세요."),
             HumanMessage(content=prompt)
         ]
         
@@ -159,6 +151,7 @@ class ReportWriter:
     
     def _format_references(self, references: List[Dict]) -> str:
         """참고문헌 포맷팅"""
+        
         if not references:
             return "참고 자료 없음"
         
@@ -171,20 +164,15 @@ class ReportWriter:
         
         # 출처별 분류
         web_refs = [r for r in unique_refs.values() if r.get('source') == 'web']
-        rag_refs = [r for r in unique_refs.values() if r.get('source') == 'rag']
         
         formatted = []
         
         if web_refs:
             formatted.append("## 웹 검색 자료\n")
             for i, ref in enumerate(web_refs, 1):
-                formatted.append(f"{i}. {ref.get('title', '제목 없음')}")
-                formatted.append(f"   - URL: {ref.get('url', '')}\n")
+                title = ref.get('title', '제목 없음')
+                url = ref.get('url', '')
+                formatted.append(f"{i}. [{title}]({url})")
         
-        if rag_refs:
-            formatted.append("## 윤리 가이드라인 문서\n")
-            for i, ref in enumerate(rag_refs, 1):
-                formatted.append(f"{i}. {ref.get('guideline', '알 수 없음')}")
-                formatted.append(f"   - 페이지: {ref.get('page', 'N/A')}\n")
-        
-        return "\n".join(formatted)
+        return "\n".join(formatted) if formatted else "참고 자료 없음"
+

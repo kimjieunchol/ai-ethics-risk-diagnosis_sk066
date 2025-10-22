@@ -8,3 +8,6 @@ faiss-cpu==1.7.4
 pypdf==4.0.0
 tavily-python==0.3.0
 pydantic==2.5.0
+streamlit==1.29.0
+plotly==5.18.0
+pandas==2.1.0

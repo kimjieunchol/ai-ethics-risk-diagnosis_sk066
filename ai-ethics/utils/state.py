@@ -1,54 +1,52 @@
-from typing import TypedDict, List, Dict, Optional, Annotated
-from langchain_core.messages import BaseMessage
-import operator
+from typing import Dict, List, Any
+from dataclasses import dataclass, field
 
-class EthicsAssessmentState(TypedDict):
-    """AI 윤리성 리스크 진단 State"""
+@dataclass
+class AssessmentState:
+    """평가 상태 관리"""
     
-    # 입력 정보
-    service_names: List[str]  # 분석 대상 AI 서비스 이름 (최대 3개)
-    guidelines: List[str]  # 사용할 윤리 가이드라인 (EU AI Act, UNESCO, OECD)
+    # 입력
+    service_names: List[str] = field(default_factory=list)
     
     # 서비스 분석 결과
-    service_analysis: Dict[str, Dict]  # 각 서비스별 분석 결과
-    # {
-    #   "ChatGPT": {
-    #     "overview": "...",
-    #     "key_features": [...],
-    #     "target_users": "...",
-    #     "data_usage": "..."
-    #   }
-    # }
+    service_analyses: Dict[str, Dict] = field(default_factory=dict)
     
-    # 윤리 리스크 진단 결과
-    risk_assessment: Dict[str, Dict]  # 각 서비스별 리스크 평가
-    # {
-    #   "ChatGPT": {
-    #     "bias": {"score": 3, "description": "...", "evidence": [...]},
-    #     "privacy": {"score": 4, "description": "...", "evidence": [...]},
-    #     "transparency": {"score": 2, "description": "...", "evidence": [...]},
-    #     "accountability": {"score": 3, "description": "...", "evidence": [...]}
-    #   }
-    # }
+    # 리스크 평가 결과
+    risk_assessments: Dict[str, Dict] = field(default_factory=dict)
     
     # 개선안
-    improvement_suggestions: Dict[str, List[Dict]]  # 각 서비스별 개선안
-    # {
-    #   "ChatGPT": [
-    #     {"risk_area": "transparency", "suggestion": "...", "priority": "high"},
-    #     ...
-    #   ]
-    # }
+    improvement_suggestions: Dict[str, List[Dict]] = field(default_factory=dict)
+    
+    # 비교 분석
+    comparison_analysis: str = ""
     
     # 최종 보고서
-    final_report: Optional[str]  # Markdown 형식 최종 보고서
+    final_report: str = ""
     
-    # 참고 문헌
-    references: Annotated[List[Dict], operator.add]  # 수집된 참고 자료
-    # [{"title": "...", "url": "...", "source": "web/rag"}]
+    # 메타데이터
+    metadata: Dict[str, Any] = field(default_factory=dict)
     
-    # 메시지 (디버깅용)
-    messages: Annotated[List[BaseMessage], operator.add]
+    def add_service_analysis(self, service_name: str, analysis: Dict):
+        """서비스 분석 결과 추가"""
+        self.service_analyses[service_name] = analysis
     
-    # 현재 처리 중인 서비스
-    current_service: Optional[str]
+    def add_risk_assessment(self, service_name: str, assessment: Dict):
+        """리스크 평가 추가"""
+        self.risk_assessments[service_name] = assessment
+    
+    def add_improvements(self, service_name: str, improvements: List[Dict]):
+        """개선안 추가"""
+        self.improvement_suggestions[service_name] = improvements
+    
+    def get_summary(self) -> Dict:
+        """상태 요약"""
+        return {
+            "services_count": len(self.service_names),
+            "services": self.service_names,
+            "analyses_completed": len(self.service_analyses),
+            "assessments_completed": len(self.risk_assessments),
+            "improvements_generated": len(self.improvement_suggestions),
+            "comparison_done": bool(self.comparison_analysis),
+            "report_generated": bool(self.final_report)
+        }
+

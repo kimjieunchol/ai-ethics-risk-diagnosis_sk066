@@ -2,7 +2,7 @@
 서비스 분석 에이전트
 """
 import json
-from typing import Dict
+from typing import List, Dict
 from langchain_openai import ChatOpenAI
 from src.state import EthicsRiskState
 from src.tools import WebSearchTool

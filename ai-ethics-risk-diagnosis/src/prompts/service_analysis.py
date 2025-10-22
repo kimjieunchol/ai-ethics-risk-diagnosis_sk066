@@ -1,6 +1,7 @@
 """
 서비스 분석 프롬프트
 """
+from typing import List, Dict
 
 SERVICE_ANALYSIS_PROMPT = """당신은 AI 서비스 분석 전문가입니다.
 

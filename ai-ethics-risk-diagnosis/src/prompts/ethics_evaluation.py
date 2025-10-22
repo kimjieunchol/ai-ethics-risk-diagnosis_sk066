@@ -1,6 +1,7 @@
 """
 윤리 평가 프롬프트
 """
+from typing import List, Dict
 
 ETHICS_EVALUATION_PROMPT = """당신은 AI 윤리 평가 전문가입니다.
 

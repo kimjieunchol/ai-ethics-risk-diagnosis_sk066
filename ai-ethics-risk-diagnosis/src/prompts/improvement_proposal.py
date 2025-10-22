@@ -1,6 +1,7 @@
 """
 개선안 제안 프롬프트
 """
+from typing import List, Dict
 
 IMPROVEMENT_PROPOSAL_PROMPT = """당신은 AI 윤리 컨설턴트입니다.
 

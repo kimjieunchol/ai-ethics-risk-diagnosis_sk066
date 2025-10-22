@@ -1,6 +1,7 @@
 """
 보고서 생성 프롬프트
 """
+from typing import List, Dict
 
 REPORT_GENERATION_PROMPT = """당신은 전문 리포트 작성자입니다.
 

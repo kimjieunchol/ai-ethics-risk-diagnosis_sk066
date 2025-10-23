@@ -1,13 +1,30 @@
+# agents/report_writer.py - 한국어 버전
+
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 from typing import Dict, List
 from datetime import datetime
 import json
+import os
 from config.settings import LLM_MODEL, LLM_TEMPERATURE, OPENAI_API_KEY
-from prompts.report_generation import REPORT_GENERATION_PROMPT, SUMMARY_PROMPT
+
+try:
+    from prompts.report_generation import (
+        DETAILED_REPORT_GENERATION_PROMPT,
+        SUMMARY_GENERATION_PROMPT
+    )
+except ImportError:
+    DETAILED_REPORT_GENERATION_PROMPT = "한국어로 보고서를 작성하세요."
+    SUMMARY_GENERATION_PROMPT = "한국어로 Executive Summary를 작성하세요."
+
+try:
+    from tools.report_pdf_enhanced import EnhancedPDFReportGenerator
+except ImportError:
+    EnhancedPDFReportGenerator = None
+
 
 class ReportWriter:
-    """리포트 작성 에이전트 - 진단 결과 및 권고사항 리포트 생성"""
+    """리포트 작성 에이전트 - 한국어 보고서 생성"""
     
     def __init__(self):
         self.llm = ChatOpenAI(
@@ -15,6 +32,11 @@ class ReportWriter:
             temperature=LLM_TEMPERATURE,
             openai_api_key=OPENAI_API_KEY
         )
+        
+        if EnhancedPDFReportGenerator:
+            self.pdf_generator = EnhancedPDFReportGenerator()
+        else:
+            self.pdf_generator = None
     
     def generate_report(
         self,
@@ -22,12 +44,13 @@ class ReportWriter:
         service_analyses: Dict[str, Dict],
         risk_assessments: Dict[str, Dict],
         improvement_suggestions: Dict[str, List[Dict]],
-        comparison_analysis: str
-    ) -> str:
+        comparison_analysis: str,
+        output_dir: str = "outputs"
+    ) -> Dict[str, str]:
         """최종 보고서 생성"""
         
         print(f"\n{'='*60}")
-        print(f"📝 최종 보고서 작성")
+        print(f"📝 최종 보고서 작성 (한국어)")
         print(f"{'='*60}\n")
         
         # 1. 참고문헌 수집
@@ -35,87 +58,152 @@ class ReportWriter:
         for analysis in service_analyses.values():
             all_references.extend(analysis.get('references', []))
         
-        # 2. 메인 보고서 생성
+        # 2. Executive Summary 생성
+        print(f"  📋 Executive Summary 작성 중...")
+        summary = self._generate_summary(
+            services=services,
+            risk_assessments=risk_assessments
+        )
+        
+        # 3. 메인 보고서 생성
         print(f"  ✍️  본문 작성 중...")
         main_report = self._generate_main_report(
             services=services,
             service_analyses=service_analyses,
             risk_assessments=risk_assessments,
-            improvement_suggestions=improvement_suggestions,
-            comparison_analysis=comparison_analysis,
-            references=all_references
+            improvement_suggestions=improvement_suggestions
         )
         
-        # 3. Executive Summary 생성
-        print(f"  📋 Executive Summary 작성 중...")
-        summary = self._generate_summary(main_report, services, risk_assessments)
-        
         # 4. 최종 조합
-        final_report = self._assemble_final_report(
+        markdown_report = self._assemble_final_report(
             summary=summary,
             main_report=main_report,
             services=services
         )
         
-        print(f"\n  ✅ 보고서 작성 완료!")
-        print(f"     - 총 길이: {len(final_report):,} 자")
-        print(f"     - 단어 수: {len(final_report.split()):,} 개")
+        print(f"\n  ✅ 한국어 마크다운 보고서 작성 완료!")
         
-        return final_report
+        # 5. PDF 생성
+        pdf_path = None
+        if self.pdf_generator:
+            print(f"  📄 PDF 보고서 생성 중...")
+            try:
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                pdf_path = os.path.join(output_dir, f"ethics_report_{timestamp}.pdf")
+                os.makedirs(output_dir, exist_ok=True)
+                
+                detailed_data = {
+                    'service_analyses': service_analyses,
+                    'risk_assessments': risk_assessments,
+                    'improvement_suggestions': improvement_suggestions
+                }
+                
+                self.pdf_generator.generate_report(
+                    output_path=pdf_path,
+                    services=services,
+                    detailed_data=detailed_data,
+                    report_text=markdown_report
+                )
+                
+                print(f"  ✅ PDF 보고서 생성 완료!")
+            except Exception as e:
+                print(f"  ⚠️  PDF 생성 오류: {e}")
+                pdf_path = None
+        
+        return {
+            'markdown': markdown_report,
+            'pdf_path': pdf_path
+        }
+    
+    def _generate_summary(self, services: List[str], risk_assessments: Dict) -> str:
+        """Executive Summary 생성 (한국어)"""
+        try:
+            total_score = sum([v['overall_score'] for v in risk_assessments.values()]) / len(services)
+            
+            system_msg = """당신은 전문 AI 윤리 리포트 작성자입니다.
+다음 요구사항을 반드시 지켜주세요:
+1. 모든 내용을 한국어로 작성하세요
+2. 영어는 서비스명, 인명, 문헌제목에만 사용
+3. 명확하고 전문적인 한국어 사용
+4. 구체적인 수치와 근거 포함"""
+            
+            user_msg = f"""다음 AI 서비스들의 평가 결과를 바탕으로 Executive Summary를 한국어로 작성해주세요.
+
+서비스: {', '.join(services)}
+평균 점수: {total_score:.1f}/5
+
+각 서비스의 상세 평가:
+{json.dumps(risk_assessments, ensure_ascii=False, indent=2)}
+
+Executive Summary 작성 요구사항:
+1. 평가 개요 (150자) - 평가 목적, 대상, 기준
+2. 주요 발견사항 (300-400자) - 5개 이상의 핵심 포인트
+3. 평가 결과 (200-250자) - 종합 리스크, 강점, 약점
+4. 최우선 권고 (150-200자) - 즉시 개선 필요 3가지
+
+한국어로 명확하고 전문적으로 작성해주세요."""
+            
+            messages = [
+                SystemMessage(content=system_msg),
+                HumanMessage(content=user_msg)
+            ]
+            
+            response = self.llm.invoke(messages)
+            return response.content
+        
+        except Exception as e:
+            print(f"요약 생성 오류: {e}")
+            return "# Executive Summary\n\n요약 생성에 실패했습니다."
     
     def _generate_main_report(
         self,
         services: List[str],
         service_analyses: Dict,
         risk_assessments: Dict,
-        improvement_suggestions: Dict,
-        comparison_analysis: str,
-        references: List[Dict]
+        improvement_suggestions: Dict
     ) -> str:
-        """메인 보고서 생성"""
+        """메인 보고서 생성 (한국어)"""
+        try:
+            system_msg = """당신은 전문 AI 윤리 평가 리포트 작성자입니다.
+요구사항:
+1. 모든 내용을 한국어로 작성하세요
+2. 각 서비스에 대해 차원별로 상세히 분석하세요
+3. 웹 검색 결과의 내용을 한국어로 번역/요약하세요
+4. 구체적인 근거와 데이터를 포함하세요
+5. 영어 텍스트가 나오면 한국어로 변환하세요"""
+            
+            user_msg = f"""다음 데이터를 바탕으로 한국어 보고서를 작성해주세요.
+
+분석 서비스: {', '.join(services)}
+
+서비스 분석:
+{json.dumps(service_analyses, ensure_ascii=False, indent=2)}
+
+리스크 평가:
+{json.dumps(risk_assessments, ensure_ascii=False, indent=2)}
+
+개선 권고:
+{json.dumps(improvement_suggestions, ensure_ascii=False, indent=2)}
+
+다음 구조로 작성해주세요:
+1. 평가 방법론 - 각 차원을 한국어로 설명
+2. 서비스별 상세 평가 - 각 서비스마다 종합평가 및 차원별 분석 (한국어)
+3. 비교 분석 - 서비스 간 비교 (해당시)
+4. 종합 권고사항 - 단기/중기/장기 조치 (한국어)
+
+중요: 모든 내용을 한국어로 작성하고, 영어 텍스트가 있으면 한국어로 변환하세요."""
+            
+            messages = [
+                SystemMessage(content=system_msg),
+                HumanMessage(content=user_msg)
+            ]
+            
+            response = self.llm.invoke(messages)
+            return response.content
         
-        formatted_refs = self._format_references(references)
-        
-        prompt = REPORT_GENERATION_PROMPT.format(
-            services=", ".join(services),
-            service_analyses=json.dumps(service_analyses, ensure_ascii=False, indent=2),
-            risk_assessments=json.dumps(risk_assessments, ensure_ascii=False, indent=2),
-            improvement_suggestions=json.dumps(improvement_suggestions, ensure_ascii=False, indent=2),
-            comparison_analysis=comparison_analysis if comparison_analysis else "단일 서비스 분석"
-        )
-        
-        messages = [
-            SystemMessage(content="당신은 전문 기술 리포트 작성자입니다. 명확하고 구조화되며 실행 가능한 보고서를 작성하세요."),
-            HumanMessage(content=prompt)
-        ]
-        
-        response = self.llm.invoke(messages)
-        
-        # 참고문헌 추가
-        return response.content + "\n\n---\n\n# 참고 문헌\n\n" + formatted_refs
-    
-    def _generate_summary(
-        self, 
-        report_content: str,
-        services: List[str],
-        risk_assessments: Dict
-    ) -> str:
-        """Executive Summary 생성"""
-        
-        # 보고서가 너무 길면 일부만 사용
-        if len(report_content) > 10000:
-            report_content = report_content[:10000] + "\n...(이하 생략)..."
-        
-        prompt = SUMMARY_PROMPT.format(report_content=report_content)
-        
-        messages = [
-            SystemMessage(content="당신은 전문 리포트 작성자입니다. 핵심을 간결하고 명확하게 요약하세요."),
-            HumanMessage(content=prompt)
-        ]
-        
-        response = self.llm.invoke(messages)
-        
-        return response.content
+        except Exception as e:
+            print(f"메인 보고서 생성 오류: {e}")
+            return "# 보고서\n\n보고서 생성에 실패했습니다."
     
     def _assemble_final_report(
         self,
@@ -125,54 +213,43 @@ class ReportWriter:
     ) -> str:
         """최종 보고서 조합"""
         
-        current_date = datetime.now().strftime("%Y년 %m월 %d일")
-        
         header = f"""# AI 윤리성 리스크 진단 보고서
 
-**분석 대상**: {", ".join(services)}  
-**작성일**: {current_date}  
+**분석 대상**: {', '.join(services)}  
+**작성일**: {datetime.now().strftime('%Y년 %m월 %d일')}  
 **평가 기준**: EU AI Act, UNESCO AI Ethics, OECD AI Principles
 
 ---
 
 """
         
-        executive_summary = f"""# EXECUTIVE SUMMARY
-
-{summary}
+        footer = f"""
 
 ---
 
+# 참고문헌
+
+- 유럽위원회 (2021). '인공지능에 관한 규정(AI Act)' 제안
+- 유네스코 (2021). '인공지능 윤리에 관한 권고'
+- OECD (2019). 'OECD AI 원칙'
+- NIST (2023). 'AI 위험 관리 프레임워크'
+
+---
+
+# 부록
+
+## 평가 등급 기준
+
+| 등급 | 점수 범위 | 위험도 | 정의 |
+|------|---------|-------|------|
+| A+ | 4.8-5.0 | 매우 낮음 | 모범 사례 |
+| A | 4.5-4.7 | 낮음 | 우수 |
+| B+ | 4.2-4.4 | 낮음 | 양호 |
+| B | 3.8-4.1 | 중간 | 보통 |
+| C | 3.0-3.7 | 중간 | 미흡 |
+| D | 2.0-2.9 | 높음 | 부족 |
+| F | 1.0-1.9 | 매우 높음 | 위험 |
+
 """
         
-        final_report = header + executive_summary + main_report
-        
-        return final_report
-    
-    def _format_references(self, references: List[Dict]) -> str:
-        """참고문헌 포맷팅"""
-        
-        if not references:
-            return "참고 자료 없음"
-        
-        # 중복 제거 (URL 기준)
-        unique_refs = {}
-        for ref in references:
-            url = ref.get('url', '')
-            if url and url not in unique_refs:
-                unique_refs[url] = ref
-        
-        # 출처별 분류
-        web_refs = [r for r in unique_refs.values() if r.get('source') == 'web']
-        
-        formatted = []
-        
-        if web_refs:
-            formatted.append("## 웹 검색 자료\n")
-            for i, ref in enumerate(web_refs, 1):
-                title = ref.get('title', '제목 없음')
-                url = ref.get('url', '')
-                formatted.append(f"{i}. [{title}]({url})")
-        
-        return "\n".join(formatted) if formatted else "참고 자료 없음"
-
+        return header + summary + main_report + footer

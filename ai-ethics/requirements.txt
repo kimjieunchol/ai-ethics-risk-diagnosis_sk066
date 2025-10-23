@@ -1,13 +1,31 @@
+# LangChain
 langchain==0.1.0
 langchain-openai==0.0.5
-langchain-community==0.0.20
-langgraph==0.0.20
+langchain-core==0.1.10
+
+# OpenAI
 openai==1.10.0
-python-dotenv==1.0.0
-faiss-cpu==1.7.4
-pypdf==4.0.0
-tavily-python==0.3.0
-pydantic==2.5.0
-streamlit==1.29.0
+
+# 웹 검색
+tavily-python==0.3.3
+
+# 웹 크롤링
+requests==2.31.0
+beautifulsoup4==4.12.3
+lxml==5.1.0
+
+# PDF 생성
+reportlab==4.0.9
+
+# 데이터 처리
+pandas==2.2.0
+
+# Streamlit (대시보드 - 선택사항)
+streamlit==1.31.0
 plotly==5.18.0
-pandas==2.1.0
+
+# 환경 변수
+python-dotenv==1.0.0
+
+# 기타
+pydantic==2.5.3

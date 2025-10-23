@@ -1,0 +1,12 @@
+{
+  "services_count": 2,
+  "services": [
+    "Claude",
+    "Copilot"
+  ],
+  "analyses_completed": 2,
+  "assessments_completed": 2,
+  "improvements_generated": 2,
+  "comparison_done": true,
+  "report_generated": false
+}

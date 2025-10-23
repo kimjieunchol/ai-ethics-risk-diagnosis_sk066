@@ -20,7 +20,7 @@ class AIEthicsAssessmentSystem:
     1. ServiceAnalyzer: AI 서비스 개요 파악 (대상 기능 정리, 주요 특징)
     2. RiskAssessor: 편향성, 개인정보, 설명가능성 등 윤리성 항목별 리스크 평가
     3. ImprovementAdvisor: 윤리성 강화 위한 구체적 개선 방향 제안
-    4. ReportWriter: 진단 결과 및 권고사항 리포트 생성
+    4. ReportWriter: 진단 결과 및 권고사항 리포트 생성 (마크다운 + PDF)
     """
     
     def __init__(self):
@@ -43,7 +43,7 @@ class AIEthicsAssessmentSystem:
         self, 
         service_names: List[str],
         output_dir: str = "outputs"
-    ) -> str:
+    ) -> dict:
         """
         여러 AI 서비스 분석 및 보고서 생성
         
@@ -52,7 +52,7 @@ class AIEthicsAssessmentSystem:
             output_dir: 출력 디렉토리
         
         Returns:
-            최종 보고서 (마크다운)
+            결과 딕셔너리 (markdown, pdf_path 포함)
         """
         
         # 검증
@@ -83,11 +83,11 @@ class AIEthicsAssessmentSystem:
             if len(service_names) >= 2:
                 self._compare_services(state)
             
-            # 5. 최종 보고서 생성
-            self._generate_final_report(state)
+            # 5. 최종 보고서 생성 (마크다운 + PDF)
+            report_result = self._generate_final_report(state, output_dir)
             
             # 6. 결과 저장
-            self._save_results(state, output_dir)
+            self._save_results(state, output_dir, report_result)
             
             state.metadata['end_time'] = datetime.now().isoformat()
             
@@ -96,7 +96,11 @@ class AIEthicsAssessmentSystem:
             for key, value in state.get_summary().items():
                 print(f"     - {key}: {value}")
             
-            return state.final_report
+            return {
+                'markdown_report': report_result['markdown'],
+                'pdf_path': report_result.get('pdf_path'),
+                'output_dir': output_dir
+            }
             
         except Exception as e:
             print(f"\n❌ 오류 발생: {e}")
@@ -146,21 +150,22 @@ class AIEthicsAssessmentSystem:
         comparison = self.improvement_advisor.compare_services(services_data)
         state.comparison_analysis = comparison
     
-    def _generate_final_report(self, state: AssessmentState):
-        """최종 보고서 생성"""
-        print_section("5단계: 최종 보고서 작성", char="=")
+    def _generate_final_report(self, state: AssessmentState, output_dir: str) -> dict:
+        """최종 보고서 생성 (마크다운 + PDF)"""
+        print_section("5단계: 최종 보고서 작성 (마크다운 + PDF)", char="=")
         
-        report = self.report_writer.generate_report(
+        report_result = self.report_writer.generate_report(
             services=state.service_names,
             service_analyses=state.service_analyses,
             risk_assessments=state.risk_assessments,
             improvement_suggestions=state.improvement_suggestions,
-            comparison_analysis=state.comparison_analysis
+            comparison_analysis=state.comparison_analysis,
+            output_dir=output_dir
         )
         
-        state.final_report = report
+        return report_result
     
-    def _save_results(self, state: AssessmentState, output_dir: str):
+    def _save_results(self, state: AssessmentState, output_dir: str, report_result: dict):
         """결과 저장"""
         print_section("6단계: 결과 저장", char="=")
         
@@ -170,11 +175,15 @@ class AIEthicsAssessmentSystem:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         base_name = f"ethics_assessment_{timestamp}"
         
-        # 보고서 저장 (마크다운)
+        # 마크다운 보고서 저장
         report_path = os.path.join(output_dir, f"{base_name}.md")
         with open(report_path, 'w', encoding='utf-8') as f:
-            f.write(state.final_report)
-        print(f"  📄 보고서: {report_path}")
+            f.write(report_result['markdown'])
+        print(f"  📄 마크다운 보고서: {report_path}")
+        
+        # PDF 경로 출력
+        if report_result.get('pdf_path'):
+            print(f"  📄 PDF 보고서: {report_result['pdf_path']}")
         
         # 상세 데이터 저장 (JSON)
         data_path = os.path.join(output_dir, f"{base_name}_data.json")
@@ -206,13 +215,12 @@ def main():
     # 분석할 서비스 목록 (최대 3개)
     services_to_analyze = [
         "ChatGPT",
-        "Claude",
-        "Google Gemini"
+        "Claude"
     ]
     
     try:
         # 분석 실행
-        report = system.analyze_services(
+        result = system.analyze_services(
             service_names=services_to_analyze,
             output_dir="outputs"
         )
@@ -220,9 +228,16 @@ def main():
         print("\n" + "="*60)
         print("✅ 분석이 성공적으로 완료되었습니다!")
         print("="*60)
-        print("\n보고서 미리보기 (처음 500자):")
+        print(f"\n📁 출력 디렉토리: {result['output_dir']}")
+        print(f"📄 마크다운 보고서: {result['output_dir']}/ethics_assessment_*.md")
+        if result.get('pdf_path'):
+            print(f"📄 PDF 보고서: {result['pdf_path']}")
+        
+        # 보고서 미리보기
+        print("\n" + "-"*60)
+        print("📋 보고서 미리보기 (처음 500자):")
         print("-"*60)
-        print(report[:500] + "...")
+        print(result['markdown_report'][:500] + "...")
         
     except Exception as e:
         print(f"\n❌ 오류 발생: {e}")

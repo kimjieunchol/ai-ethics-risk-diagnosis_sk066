@@ -1,0 +1,897 @@
+{
+  "metadata": {
+    "start_time": "2025-10-23T10:25:05.293812"
+  },
+  "services": [
+    "DALL-E",
+    "Midjourney"
+  ],
+  "service_analyses": {
+    "DALL-E": {
+      "service_overview": {
+        "description": "DALL-E는 OpenAI가 개발한 텍스트-이미지 생성 모델로, 사용자가 입력한 텍스트 설명을 기반으로 이미지를 생성하는 기능을 제공합니다. 이 서비스는 딥러닝 기술을 활용하여 다양한 스타일과 주제를 아우르는 이미지를 생성할 수 있으며, 특히 동물이나 사물의 의인화, 서로 관련 없는 요소의 결합 등 창의적인 이미지 생성에 강점을 보입니다. DALL-E 2와 DALL-E 3은 이전 버전보다 향상된 이미지 해상도와 세부 묘사 능력을 제공하며, 사용자가 원하는 이미지의 세부 사항을 보다 정확하게 반영할 수 있습니다. 이 서비스는 디자이너, 마케터, 교육자 등 다양한 분야에서 활용될 수 있으며, 특히 창의적인 작업의 초기 단계에서 아이디어를 시각화하는 데 유용합니다.",
+        "main_features": [
+          "텍스트 설명 기반 이미지 생성",
+          "이미지 편집 및 변형",
+          "고해상도 이미지 생성",
+          "다양한 스타일의 이미지 생성",
+          "의인화된 이미지 생성"
+        ],
+        "target_users": "DALL-E는 B2C와 B2B 사용자 모두를 대상으로 하며, 특히 디자이너, 마케터, 교육자, 콘텐츠 제작자 등 창의적인 작업을 수행하는 전문가들이 주요 사용자 그룹입니다. 또한, 개발자들은 API를 통해 DALL-E의 기능을 통합하여 다양한 애플리케이션을 개발할 수 있습니다.",
+        "use_cases": [
+          "마케팅 캠페인을 위한 맞춤형 이미지 디자인",
+          "교육 자료의 시각적 보조 자료 생성",
+          "디자인 초안 및 컨셉 아트 제작",
+          "소셜 미디어 콘텐츠 생성",
+          "게임 및 애니메이션 캐릭터 디자인"
+        ],
+        "technical_specs": {
+          "model_type": "Transformer 기반의 텍스트-이미지 생성 모델",
+          "training_data": "인터넷에서 수집된 대규모 이미지-텍스트 쌍 데이터셋",
+          "parameters": "수십억 개의 파라미터를 포함한 대규모 모델",
+          "deployment": "클라우드 기반 API를 통해 서비스 제공"
+        }
+      },
+      "technical_details": {
+        "ai_type": "Transformer 아키텍처를 기반으로 한 텍스트-이미지 생성 모델",
+        "data_usage": "인터넷에서 수집된 다양한 이미지와 텍스트 설명을 사용하여 모델을 학습하며, 데이터의 다양성과 양이 모델의 성능에 중요한 역할을 합니다.",
+        "model_info": "DALL-E 모델은 수십억 개의 파라미터를 가지고 있으며, 대규모 데이터셋을 통해 사전 학습된 후, 특정 작업에 맞춰 미세 조정됩니다.",
+        "infrastructure": "OpenAI의 클라우드 인프라를 통해 제공되며, API를 통해 확장성과 접근성을 보장합니다.",
+        "update_cycle": "모델의 업데이트는 주기적으로 이루어지며, 새로운 데이터와 기술 발전에 따라 성능 개선이 지속적으로 이루어집니다."
+      },
+      "ethics_aspects": {
+        "public_policies": [
+          "OpenAI의 윤리 가이드라인은 AI의 공정성과 투명성을 강조하며, 편향성을 줄이기 위한 노력을 포함합니다.",
+          "사용자 가이드라인은 생성된 이미지의 사용에 대한 책임을 명확히 하고 있습니다."
+        ],
+        "known_issues": [
+          "DALL-E 2는 인종 및 성별 편향 문제를 겪었으며, 특정 직업군을 묘사할 때 편향된 이미지를 생성하는 사례가 보고되었습니다.",
+          "여성 및 소수 인종에 대한 성적 대상화 문제가 지적되었습니다."
+        ],
+        "positive_aspects": [
+          "OpenAI는 편향성을 줄이기 위해 지속적으로 모델을 개선하고 있으며, 다양한 사용자 피드백을 반영하고 있습니다.",
+          "DALL-E는 창의적인 작업을 지원하며, 사용자에게 새로운 아이디어를 제공하는 데 기여합니다."
+        ],
+        "transparency_level": "OpenAI는 기술 문서와 연구 결과를 공개하여 모델의 작동 방식과 한계를 명확히 하고 있습니다.",
+        "safety_measures": [
+          "부적절한 콘텐츠 생성을 방지하기 위한 필터링 시스템",
+          "사용자 피드백을 통한 지속적인 모니터링 및 개선"
+        ]
+      },
+      "governance": {
+        "responsible_org": "OpenAI의 AI 윤리 및 정책 팀이 DALL-E의 윤리적 사용을 감독합니다.",
+        "audit_system": "내부 감사와 외부 전문가의 검토를 통해 모델의 공정성과 안전성을 평가합니다.",
+        "regulatory_compliance": [
+          "AI 관련 국제 및 지역 법규 준수",
+          "데이터 보호 및 개인정보 보호 규정 준수"
+        ],
+        "stakeholder_engagement": "사용자 피드백과 외부 전문가의 의견을 반영하여 모델 개선 및 정책 수립에 활용합니다."
+      },
+      "additional_notes": "DALL-E는 Midjourney, Stable Diffusion과 같은 경쟁 서비스와 비교하여 고해상도 이미지 생성 및 다양한 스타일 지원에서 차별화됩니다. OpenAI는 AI 연구 분야에서 선도적인 위치를 차지하고 있으며, DALL-E는 창의적인 산업에서의 영향력을 확대하고 있습니다. 향후 개발 방향은 편향성 문제 해결과 사용자 경험 개선에 중점을 두고 있으며, 지속적인 기술 혁신을 통해 더 나은 이미지 생성 기능을 제공할 계획입니다. 특히, 사용자 피드백을 적극 반영하여 서비스의 품질과 윤리성을 동시에 강화하고자 합니다.",
+      "references": [
+        {
+          "title": "DALL·E: Creating images from text | OpenAI",
+          "url": "https://openai.com/index/dall-e/",
+          "content": "We've found that it has a diverse set of capabilities, including creating anthropomorphized versions of animals and objects, combining unrelated",
+          "score": 0.98576,
+          "source": "web"
+        },
+        {
+          "title": "DALL·E 2 | OpenAI",
+          "url": "https://openai.com/index/dall-e-2/",
+          "content": "DALL·E 2 | OpenAI *   ChatGPT(opens in a new window) *   Sora(opens in a new window) *   API Platform(opens in a new window) *   Sora Log in(opens in a new window) DALL·E 2 | OpenAI DALL·E 2 Try DALL·E(opens in a new window)Follow on Instagram(opens in a new window) Image 2: \"An astronaut launching through space in a colorful explosion\", generated by DALL·E 2 Image 3: A colorful silhouette of a woman with long, flowing hair, generated by DALL·E 2 Image 13: DALL·E *   DALL·E Try DALL·E(opens in a new window) *   Explore ChatGPT(opens in a new window) *   Pricing(opens in a new window) *   Download(opens in a new window) *   Sora log in(opens in a new window) *   API log in(opens in a new window)",
+          "score": 0.98416,
+          "source": "web"
+        },
+        {
+          "title": "What Is DALL-E? | DataCamp",
+          "url": "https://www.datacamp.com/blog/what-is-dall-e",
+          "content": "DALL-E is a generative AI model developed by OpenAI, designed to generate images from text description prompts. With DALL-E 3, educators can create detailed visual aids for abstract concepts, marketers can design custom imagery for campaigns, and designers can easily generate unique visuals based on specific descriptions, all with less manual intervention than in previous versions. * **Design.** Designers could use DALL-E to generate custom artwork or initial drafts based on specific descriptions, significantly speeding up the creative process. * **Unpredictability.** While DALL-E can generate images based on descriptions, the exact output is not predictable or fully controllable, which might be a challenge for applications that require precision and consistency. While DALL-E can generate creative images, it doesn't replace the human creativity, thought process, and understanding that professional designers provide.",
+          "score": 0.98368,
+          "source": "web"
+        },
+        {
+          "title": "DALL-E - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/DALL-E",
+          "content": "DALL-E, DALL-E 2, and DALL-E 3 (stylised DALL·E) are text-to-image models developed by OpenAI using deep learning methodologies to generate digital images",
+          "score": 0.97948,
+          "source": "web"
+        },
+        {
+          "title": "DALL·E 2, explained – capabilities and limitations",
+          "url": "https://www.liberal-arts.ai/dall%C2%B7e-2-explained-capabilities-and-limitations/",
+          "content": "DALL-E 2 is an AI that generates images from text descriptions. It can generate, edit, and create variations of images.",
+          "score": 0.97575,
+          "source": "web"
+        },
+        {
+          "title": "DALL-E 2 Creates Incredible Images—and Biased Ones You Don't ...",
+          "url": "https://www.wired.com/story/dall-e-2-ai-text-image-bias-social-media/",
+          "content": "One way to handle DALL-E 2’s bias issues would be to exclude the ability to generate human faces altogether, says Hannah Rose Kirk, a data scientist at Oxford University who participated in the red team process. She coauthored research earlier this year about how to reduce bias in multimodal models like OpenAI’s CLIP, and recommends DALL-E 2 adopt a classification model that limits the system’s ability to generate images that perpetuate stereotypes. [...] Another red team member, who asked WIRED not to use their name due to concerns about possible retribution, said that while they found the OpenAI ethics team to be responsive to concerns, they were against releasing DALL-E 2 with the ability to generate faces. They question the rush to release technology that can automate discrimination. [...] DALL-E’s creators call the model experimental and not yet fit for commercial use but say it could influence industries like art, education, and marketing and help advance OpenAI’s stated goal of creating artificial general intelligence. But by OpenAI’s own admission, DALL-E 2 is more racist and sexist than a similar, smaller model. The company’s own risks and limitations document gives examples of words like “assistant” and “flight attendant” generating images of women and words like “CEO” and",
+          "score": 0.69274646,
+          "source": "web"
+        },
+        {
+          "title": "Bias & Fairness in AI Models - Deep Dive - Contrary Research",
+          "url": "https://research.contrary.com/deep-dive/bias-fairness",
+          "content": "Another issue raised by critics is the sexualization of women of color in AI-generated images. A vast amount of data is needed to train image generation models, and it is difficult to filter out all potentially racist and misogynistic data scraped from the internet. Models from other generative AI companies like Stability AI, DALL-E, and Midjourney have all struggled to depict Black women, according to artists. [...] Early iterations of OpenAI’s image generation model DALL·E highlighted this problem. In 2022, when prompted with the word “CEO,” 97% of the images produced were of White men. When asked to depict a “nurse,” the results were disproportionately female. These outcomes reflect statistical patterns in historically representative but inherently biased training data.\n\nSource: VICE [...] The regulatory push around algorithmic fairness has its roots in civil rights law and anti-discrimination statutes from the 20th century. In the United States, the Civil Rights Act of 1964 prohibited discriminatory employment practices, while the Equal Credit Opportunity Act of 1974 extended these principles to lending. These laws implicitly advanced the idea of statistical parity: practices that result in disproportionate exclusion of protected groups are considered unfair, regardless of",
+          "score": 0.6083387,
+          "source": "web"
+        },
+        {
+          "title": "AI & Fairness: Beyond Blind Spots? - Ethics Unwrapped",
+          "url": "https://ethicsunwrapped.utexas.edu/case-study/a-i-fairness-beyond-blind-spot-bias",
+          "content": "Unfortunately, research seems to indicate that generative AI, as embodied in ChatGPT and other new tools, is also plagued by racial and gender bias. One study tested three popular generative AI tools, including DALL E 2, and found that their “evident gender and racial biases … were even more pronounced than the status quo….” (Zhou et al).",
+          "score": 0.58237284,
+          "source": "web"
+        },
+        {
+          "title": "Rendering misrepresentation: Diversity failures in AI image generation",
+          "url": "https://www.brookings.edu/articles/rendering-misrepresentation-diversity-failures-in-ai-image-generation/",
+          "content": "In our tests, Dall·E appeared to have what amounts to a diversity filter that gets triggered by certain input prompt terms. That filter acts to specifically include in the machine-generated detailed prompt an instruction to include diversity. For instance, asking Dall·E to generate an image of “a group of rich people,” caused it to create the following more detailed prompt: [...] Interestingly, including “a group of” in the prompt seemed to be a key trigger for activating the diversity filter. By contrast, when we asked Dall·E to generate an image of “rich people” (i.e., without the phrase “a group of . . .”), the machine-created internal prompt contained no mention of diversity. A typical example is as follows: [...] ## Images of individuals: Another diversity failure\n\nUsing a prompt specifically designed to elicit an image of only one person illustrates another problem. Ideally, when an AI system is repeatedly asked to generate an image of “a successful person,” the collection of resulting images would, in the aggregate, portray a diverse set of people. But that’s not what we found in our tests of Dall·E. We generated 20 images using the prompt “a successful person” and got the following 20 images:",
+          "score": 0.5518883,
+          "source": "web"
+        },
+        {
+          "title": "Fairness and Bias in Artificial Intelligence: A Brief Survey of Sources ...",
+          "url": "https://www.mdpi.com/2413-4155/6/1/3",
+          "content": "Finally, with the rise in generative AI systems (GenAI), the risk of harmful biases increases [14,21,22]. A striking instance of GenAI bias was reported, where text-to-image models like StableDiffusion, OpenAI’s DALL-E, and Midjourney exhibited racial and stereotypical biases in their outputs . [...] The negative impacts of bias in AI can be significant, affecting individuals and society. Discrimination is a key concern when it comes to biased AI systems, as they can perpetuate and even amplify existing inequalities . For example, biased algorithms used in the criminal justice system can lead to unfair treatment of certain groups, particularly people of color, who are more likely to be wrongly convicted or receive harsher sentences . [...] #### 5.2. Comparison of Fairness and Bias in AI\n\nWhile fairness and bias are closely related concepts, they differ in important ways. Bias refers to the systematic and consistent deviation of an algorithm’s output from the true value or from what would be expected in the absence of bias . On the other hand, fairness in AI refers to the absence of discrimination or favoritism towards any individual or group based on protected characteristics such as race, gender, age, or religion .",
+          "score": 0.5404151,
+          "source": "web"
+        },
+        {
+          "title": "Lawfulness in AI: Navigating GDPR Compliance for Large ... - Medium",
+          "url": "https://medium.com/@naurhuss/lawfulness-in-ai-navigating-gdpr-compliance-for-large-language-models-2ddf628aa617",
+          "content": "Sitemap\n\nOpen in app\n\nSign in\n\nSign in\n\n# Lawfulness in AI: Navigating GDPR Compliance for Large Language Models\n\nNaureen Hussain\n\n6 min readNov 29, 2024\n\nSource: DALL-E [...] 1. Legal Compliance: The data use must comply with all applicable laws, including sector-specific regulations; and anti-discrimination or consumer protection laws.\n2. GDPR Lawful Basis: The data use must satisfy at least one of GDPR’s six prescribed lawful bases.\n\n### Myth 2: We Must Have the Individual’s Consent\n\nConsent is only one of six available lawful bases, and is often the most challenging, particularly in AI contexts. The six lawful bases are: [...] > “Where necessary for our legitimate interests and those of third parties and broader society, including in developing, improving, or promoting our Services, such as when we train and improve our models”",
+          "score": 0.49992734,
+          "source": "web"
+        },
+        {
+          "title": "Privacy of Personal Data in the Generative AI Data Lifecycle",
+          "url": "https://jipel.law.nyu.edu/privacy-of-personal-data-in-the-generative-ai-data-lifecycle/",
+          "content": "At the time of personal data collection, the GDPR also requires that data subjects be informed about the existence and purposes of the processing, which includes providing information about the “specific circumstances and context in which the personal data are processed.”149 This information should be in clear, plain, and easily understandable language.150 Once collected, the GDPR requires personal data to be stored in a manner that is sufficient to protect it “against unauthorised or unlawful [...] The GDPR protects personal data through its principles of lawfulness, fairness, transparency, purpose limitation, data minimization, accuracy, storage limitation, integrity, confidentiality, and accountability.137 To lawfully process personal data under the GDPR, there must be a lawful basis to support data processing.138 Under Article 6, there are six legal justifications upon which personal data processing can be based: (1) consent, (2) contract, (3) legal obligation, (4) vital interests of [...] physical, physiological, genetic, mental, economic, cultural or social identity of that natural person.”127 Notably, the GDPR does not exclude publicly available data from its scope.128 “Special categories of data” (or sensitive personal data), under the GDPR include “personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a",
+          "score": 0.45842203,
+          "source": "web"
+        },
+        {
+          "title": "Consumer privacy at OpenAI",
+          "url": "https://openai.com/consumer-privacy/",
+          "content": "Data submitted through the OpenAI API is not used to train OpenAI models or improve OpenAI’s service offering. Data submitted through non-API consumer services ChatGPT or DALL·E may be used to improve our models.\n\n### Can I opt out of having my data used to improve non-API services?\n\nYou can request to opt out of having your data used to improve our non-API services by visiting our Privacy Request Portal⁠(opens in a new window) and choosing 'Make a Privacy Request'.",
+          "score": 0.42534322,
+          "source": "web"
+        },
+        {
+          "title": "OpenAI's GDPR investigations and Data Privacy in the AI era.",
+          "url": "https://heydata.eu/en/magazine/open-ai-s-gdpr-investigations-and-the-growing-importance-of-data-privacy-in-the-ai-era",
+          "content": "Several trending AI image generation tools, like Stable Diffusion, Midjourney, and DALL·E 2, have the remarkable ability to produce amazing images in a variety of styles, but their ability to do this is not magic as AI platforms are trained on vast amounts of data, comprising billions of parameters generated through the extensive processing of massive archives of images and text.\n\nRelated topic: Ist Google Bard DSGVO-konform? [...] Important: The content of this article is for informational purposes only and does not constitute legal advice. The information provided here is no substitute for personalized legal advice from a data protection officer or an attorney. We do not guarantee that the information provided is up to date, complete, or accurate. Any actions taken on the basis of the information contained in this article are at your own risk. We recommend that you always consult a data protection officer or an attorney [...] Avoid sharing sensitive technical information like process flows, network diagrams, or code snippets, as there's a risk that other users might access this data.\n\n### External Data Protection OfficeAppoint an External DPO to help your business monitor the data processing activities of third-party tools and ensure compliance with GDPR, preventing accidental breaches due to human error.\n\nAlso, Book your initial consultation now.",
+          "score": 0.40825373,
+          "source": "web"
+        },
+        {
+          "title": "Enterprise privacy at OpenAI",
+          "url": "https://openai.com/enterprise-privacy/",
+          "content": "OpenAI uses data from different places including public sources, licensed third-party data, and information created by human reviewers. We also use data from versions of ChatGPT and DALL·E for individuals. By default, business data from ChatGPT Business, ChatGPT Enterprise, ChatGPT Edu, and the API Platform (after March 1, 2023) isn't used for training our models, unless you have explicitly opted in to share your data with us to improve the services.",
+          "score": 0.34959987,
+          "source": "web"
+        }
+      ],
+      "service_name": "DALL-E"
+    },
+    "Midjourney": {
+      "service_overview": {
+        "description": "Midjourney is an advanced AI-driven platform that specializes in transforming text prompts into high-quality digital artwork and videos. Utilizing generative adversarial networks (GANs), Midjourney excels in creating artistic and stylized content, offering a unique entry point for businesses and individuals interested in AI-driven video and image creation. The platform is known for its ease of use, facilitated by a Discord-based interface, which allows users to generate, refine, and share their creations seamlessly. Midjourney's technology is particularly strong in producing stylized animations, although it faces challenges with photorealistic outputs due to the uncanny valley effect. The platform's continuous development promises more sophisticated features, making it a versatile tool for expanding human creativity and imagination.",
+        "main_features": [
+          "Text-to-Image Generation",
+          "Style Customization",
+          "High-Quality Output",
+          "Discord-Based Platform",
+          "Collaborative Features"
+        ],
+        "target_users": "Midjourney caters to a diverse user base, including individual creators, artists, businesses exploring AI-driven content creation, and developers interested in integrating AI art generation into their applications. It serves both B2C and B2B markets, providing tools that are accessible to non-technical users while offering advanced customization options for professionals.",
+        "use_cases": [
+          "Artistic Content Creation",
+          "Marketing and Advertising",
+          "Educational Materials",
+          "Social Media Content",
+          "Entertainment Industry"
+        ],
+        "technical_specs": {
+          "model_type": "Generative Adversarial Networks (GANs)",
+          "training_data": "Trained on millions of images to create unique, never-before-seen outputs.",
+          "parameters": "Details on the exact number of parameters are not specified, but the model is robust enough to handle complex image generation tasks.",
+          "deployment": "The platform is primarily accessed via a Discord-based interface, allowing for easy integration and use."
+        }
+      },
+      "technical_details": {
+        "ai_type": "Midjourney employs Generative Adversarial Networks (GANs) to generate images and videos from text prompts.",
+        "data_usage": "The model is trained on a vast dataset comprising millions of images sourced from diverse online repositories, ensuring a wide range of styles and subjects.",
+        "model_info": "While specific model parameters are not disclosed, the GAN architecture suggests a complex interplay between generator and discriminator networks to produce high-quality outputs.",
+        "infrastructure": "Midjourney operates on a cloud-based infrastructure, leveraging scalable resources to handle user demands and facilitate seamless integration with Discord.",
+        "update_cycle": "The platform undergoes regular updates to enhance features and improve model accuracy, although specific intervals are not publicly detailed."
+      },
+      "ethics_aspects": {
+        "public_policies": [
+          "Midjourney has not publicly detailed specific ethical guidelines, but general AI ethics principles are likely followed.",
+          "The platform's use policy emphasizes responsible use and prohibits content that violates community standards."
+        ],
+        "known_issues": [
+          "Bias in image generation, particularly in the representation of race and gender.",
+          "Challenges with accurately depicting diverse demographics in AI-generated content."
+        ],
+        "positive_aspects": [
+          "Midjourney's commitment to expanding creative possibilities through AI.",
+          "Efforts to improve model fairness and reduce bias in outputs."
+        ],
+        "transparency_level": "Midjourney maintains a moderate level of transparency, providing users with basic information about its capabilities and limitations.",
+        "safety_measures": [
+          "Content moderation to prevent misuse of the platform.",
+          "Community guidelines to ensure ethical use of generated content."
+        ]
+      },
+      "governance": {
+        "responsible_org": "Specific details about a dedicated AI ethics team are not disclosed, but governance is likely handled by internal teams.",
+        "audit_system": "There is no public information on formal audit processes, but internal reviews are assumed to ensure compliance with ethical standards.",
+        "regulatory_compliance": [
+          "Compliance with general data protection regulations.",
+          "Adherence to community standards and ethical AI practices."
+        ],
+        "stakeholder_engagement": "Feedback from users and external experts is likely considered to improve the platform, although specific engagement strategies are not detailed."
+      },
+      "additional_notes": "Midjourney stands out in the AI art generation space due to its focus on stylized and artistic content, differentiating itself from competitors like DALL-E and Stable Diffusion, which emphasize photorealism. The platform's integration with Discord offers a unique user experience, fostering community interaction and collaboration. As AI technology evolves, Midjourney is poised to expand its capabilities, potentially incorporating more advanced features such as real-time video generation and enhanced customization options. The platform's influence in the creative industry continues to grow, offering innovative tools for artists and businesses alike.",
+      "references": [
+        {
+          "title": "Midjourney AI Video Generator: Features, Capabilities, and Future ...",
+          "url": "https://mpgone.com/midjourney-ai-video-generator-features-capabilities-and-future-outlook/",
+          "content": "The technology shows particular strength in animating artistic and stylized content. Photorealistic videos still face challenges with uncanny valley effects, but stylized animations perform exceptionally well.\n\nThese capabilities position Midjourney as an excellent entry point for businesses exploring AI video creation. The familiar interface and high-quality output make it accessible while the growing feature set promises more advanced capabilities ahead. [...] Skip to content\n\nMPG ONE\n\nMPG ONE\n\n# Midjourney AI Video Generator: Features, Capabilities, and Future Outlook\n\nByMohamed Ezz\n\nThe Midjourney AI video generator changes still images into animated videos using artificial intelligence. Launched in June 2025, this V1 Video model creates 5-second videos from single images, with options to extend them up to 20 seconds. The tool marks Midjourney’s growth from leading AI image generation to entering the competitive video creation space. [...] Currently, you can only use Midjourney through Discord. This limits how businesses can integrate the tool.\n\nThe planned API will change this completely:\n\n Direct Integration: Add Midjourney to any software or website\n Batch Processing: Create hundreds of images automatically\n Custom Workflows: Build specialized tools for specific industries\n Real-time Generation: Generate images instantly within applications",
+          "score": 0.8190992,
+          "source": "web"
+        },
+        {
+          "title": "Midjourney: AI Art Generation That Expands Imagination | Deepgram",
+          "url": "https://deepgram.com/ai-apps/midjourney",
+          "content": "Midjourney utilizes a type of AI called generative adversarial networks (GANs) to create images. Users provide a text prompt and the AI generates a number of images that match the description. The AI has been trained on millions of images and uses that data to create new ones that have never existed before.\n\nKey features and capabilities of Midjourney's AI art generation: [...] ## Conclusion\n\nMidjourney leverages the power of AI to expand human imagination and creativity. The text-to-image generation capabilities open up new possibilities across a range of use cases and applications. From artists looking to enhance their workflows to entrepreneurs wanting to easily create graphics and marketing assets, Midjourney makes generating visuals quick, simple and endlessly unique.\n\nLast Updated: 07/26/25\n\n### Try Deepgram with $200 in free credits! [...] Text-to-image capabilities - turn written descriptions into images\n Generate multiple options for each prompt\n Ability to iterate and refine images by providing feedback\n Control image size, aspect ratio, and other attributes\n Wide range of art styles and genres can be replicated\n\n## Use Cases and Applications\n\nMidjourney can be used for a variety of applications:",
+          "score": 0.8066246,
+          "source": "web"
+        },
+        {
+          "title": "Midjourney AI Review (October 2025) - Worth It? - WPCrafter",
+          "url": "https://www.wpcrafter.com/review/midjourney-ai/",
+          "content": "But is it worth trying? Does it do what it claims to do? And is it actually useful?\n\nOur Midjourney review should help you answer those questions.\n\nStick around as we delve into Midjourney’s features, capabilities, and some things you might want to consider before using it in any serious context.\n\nLet’s get started.\n\n## Midjourney Review: A Quick Look\n\n Ease of Use: 4\n Price: 3.5\n Features: 4.5\n Prompt Accuracy: 4.0 [...] One of the standout features of Midjourney is its Discord-based platform. This means you can generate, refine, and share your images without ever leaving your favorite chat app.\n\nIt’s a seamless integration that makes the process incredibly convenient and accessible, especially for those who are already active Discord users.\n\n### 5. Continuous Improvement Through Machine Learning\n\nLast but certainly not least, Midjourney is continually evolving thanks to its machine-learning algorithms. [...] Imagine having the power to generate unique images that perfectly align with your articles, without the need for a separate graphic designer.\n\nIt’s like a match made in content creation heaven!\n\n### 2. Digital Artists\n\nFor digital artists, Midjourney is a playground of endless possibilities. Its AI-powered capabilities allow you to experiment with various artistic styles, from photo realism to abstract art.",
+          "score": 0.78886026,
+          "source": "web"
+        },
+        {
+          "title": "Midjourney Review: Pros, Cons, and Features of the AI Tool - eWeek",
+          "url": "https://www.eweek.com/artificial-intelligence/midjourney-review/",
+          "content": "## 6 Key Midjourney AI Features\n\nMidjourney is an innovative image generator that follows prompts as accurately as possible. It allows users to easily produce high-quality outputs, customize generated images, and collaborate with other users.\n\n### Text-to-Image Generation [...] Midjourney AI is a powerful and versatile tool that continuously revolutionizes the field of image generation and artificial intelligence. It can create vibrant, hyper-realistic, and highly detailed visuals from text prompts. Midjourney excels for its text generation, customization, extensive artistic styles, and active user community. However, it has limitations, such as occasional wonky outputs and potential for bias, as well as its lack of a free forever plan. Before deciding if Midjourney [...] Midjourney AI is a robust text-to-image platform that offers valuable resources to users and businesses. It’s particularly well-suited for the following use cases and applications:",
+          "score": 0.77487355,
+          "source": "web"
+        },
+        {
+          "title": "Midjourney - Features, Pricing, Pros & Cons (October 2025) - Siteefy",
+          "url": "https://siteefy.com/ai-tools/midjourney/",
+          "content": "Skip to content\n\nWrite a Review!\n\nMidJourney is a cutting-edge AI platform that transforms text prompts into high-quality digital artwork.\n\nView Website Scroll to Learn More ⬇️\n\n✅ Pros & Cons\n\n🎥 Video\n\n⚙️ Features\n\n🤓 Use cases\n\n👉 How to use\n\n💰 Pricing\n\n📈 Alternatives\n\n❓ FAQs\n\n🌟 Reviews\n\nLeave a Review\n\nTest My Tool ✨\n\n🔥 Tool of the Week\n\nYouAreMe\n\nFind the souls who are exactly like you\n\nAI Soul-Matching Tools\n\nGet Featured\n\n✅ Pros: [...] 1. Text-to-Art Generator: Converts descriptive text into high-quality images in different styles.\n2. Style Customization: Users can refine and adjust art to fit their vision.\n3. High Image Resolution: Midjourney can generate images with resolutions of up to 1,792 x 1,024 pixels, allowing more space and detail in the images created.\n4. Creative Exploration: Helps artists explore unconventional designs and new visual ideas. [...] 5. Object Recognition: This feature enables users to identify and extract objects from an image.\n6. Outpainting: This feature allows users to generate images that extend beyond the original image’s boundaries. It is similar to the Adobe Generative Fill tool.",
+          "score": 0.694241,
+          "source": "web"
+        },
+        {
+          "title": "When AI Mirrors Our Flaws: Unveiling Bias in MidJourney - Medium",
+          "url": "https://medium.com/@zaida.rivai/when-ai-mirrors-our-flaws-unveiling-bias-in-midjourney-1d5ef73b8e99",
+          "content": "MidJourney’s bias, likely unintended and a result of the data it was trained on, serves as a reminder that we still have some distance to travel on the path to equality.\n\nCall to Action\n\nThe incident is a clear example of a broader issue — the representation, or lack thereof, of people of color in the technology and AI industry. It is a reflection of the systemic biases that pervade the data we feed into these models. [...] In the words of Annie Easley, “There is much work to do.” But as long as we continue to ask the right questions, challenge our assumptions, and strive for greater inclusivity, I am confident that we can do the work and pave the way for a better, more equitable future.\n\nDiversity\n\nMidjourney\n\nBias\n\nInclusion\n\nEquity\n\n## Written by Zaïda Rivai\n\n8 followers\n\n·25 following [...] Recently, I encountered a surprising example of this bias while using MidJourney, an AI tool designed to create visual representations based on user prompts.\n\nMidJourney and the Missing Women",
+          "score": 0.599087,
+          "source": "web"
+        },
+        {
+          "title": "Bias & Fairness in AI Models - Deep Dive - Contrary Research",
+          "url": "https://research.contrary.com/deep-dive/bias-fairness",
+          "content": "Another issue raised by critics is the sexualization of women of color in AI-generated images. A vast amount of data is needed to train image generation models, and it is difficult to filter out all potentially racist and misogynistic data scraped from the internet. Models from other generative AI companies like Stability AI, DALL-E, and Midjourney have all struggled to depict Black women, according to artists. [...] The regulatory push around algorithmic fairness has its roots in civil rights law and anti-discrimination statutes from the 20th century. In the United States, the Civil Rights Act of 1964 prohibited discriminatory employment practices, while the Equal Credit Opportunity Act of 1974 extended these principles to lending. These laws implicitly advanced the idea of statistical parity: practices that result in disproportionate exclusion of protected groups are considered unfair, regardless of [...] While these legal frameworks prohibit practices that violate AI fairness, they lack formal definitions of fairness, leaving room for ambiguity. For example, the White House AI Bill of Rights outlines expectations of representative data, testing, and reporting on AI model bias and discrimination, but doesn’t provide any metrics or standards against which model bias could be measured.\n\n## The Fairness Tradeoff",
+          "score": 0.58948064,
+          "source": "web"
+        },
+        {
+          "title": "Fairness and Bias in Artificial Intelligence: A Brief Survey of Sources ...",
+          "url": "https://www.mdpi.com/2413-4155/6/1/3",
+          "content": "Finally, with the rise in generative AI systems (GenAI), the risk of harmful biases increases [14,21,22]. A striking instance of GenAI bias was reported, where text-to-image models like StableDiffusion, OpenAI’s DALL-E, and Midjourney exhibited racial and stereotypical biases in their outputs . [...] The negative impacts of bias in AI can be significant, affecting individuals and society. Discrimination is a key concern when it comes to biased AI systems, as they can perpetuate and even amplify existing inequalities . For example, biased algorithms used in the criminal justice system can lead to unfair treatment of certain groups, particularly people of color, who are more likely to be wrongly convicted or receive harsher sentences . [...] #### 5.2. Comparison of Fairness and Bias in AI\n\nWhile fairness and bias are closely related concepts, they differ in important ways. Bias refers to the systematic and consistent deviation of an algorithm’s output from the true value or from what would be expected in the absence of bias . On the other hand, fairness in AI refers to the absence of discrimination or favoritism towards any individual or group based on protected characteristics such as race, gender, age, or religion .",
+          "score": 0.54855317,
+          "source": "web"
+        },
+        {
+          "title": "What Is AI Bias? | IBM",
+          "url": "https://www.ibm.com/think/topics/ai-bias",
+          "content": "As a test of image generation, Bloomberg requested more than 5,000 AI images be created and found that, “The world according to Stable Diffusion is run by white male CEOs. Women are rarely doctors, lawyers or judges. Men with dark skin commit crimes, while women with dark skin flip burgers.”4 Midjourney conducted a similar study of AI art generation, requesting images of people in specialized professions. The result showed both younger and older people, but the older people were always men,",
+          "score": 0.52524763,
+          "source": "web"
+        },
+        {
+          "title": "Bias in Midjourney — It's not just the Representation, it's the Art ...",
+          "url": "https://medium.com/@hujason/race-and-gender-bias-in-midjourney-c43e92f515f",
+          "content": "## a woman / good woman / bad woman\n\nResults from “woman” are racially diverse. “Good woman” over-represents Black women. “Bad woman” over-represents white women.\n\nThere is a class bias here. “Good” women are dressed more formally and fashionably, seemingly more middle-class or wealthy. “Bad” women appear to be more working class or impoverished.\n\nMost are “studio” style portraits, as opposed to a “real world” environment. [...] Within each racial group, there is little range in melanation. There were no dark-skinned Asians or Latinos shown (they do exist). There were not many lighter-skinned Black people represented. There seems to be a kind of regression to the mean (as the ai sees it).\n\nSimilarly, body types were realistic, but not diverse. None are noticeably tall or short, nor especially slim or heavyset.\n\n## Final thoughts [...] tldr — Midjourney is incredibly good at generating (dreaming?) realistic-seeming images of people. Based on a quick review, Midjourney v5 renders notable visual differences when depicting different genders and races. Some of those differences are stark. Others are quite subtle and stylistic. It’s not flagrantly regressive, but there is room for improvement. This is mostly a reminder that Midjourney, like all AI, is not a neutral tool. It has a point of view.",
+          "score": 0.5174983,
+          "source": "web"
+        },
+        {
+          "title": "Privacy Controls in Midjourney - Titan Extension Tools",
+          "url": "https://www.titanxt.io/post/privacy-controls-in-midjourney",
+          "content": "+ Tip: Regularly audit user permissions to prevent accidental over-permissioning.\n4. GDPR and CCPA Compliance\n\n    Data Request Handling: Midjourney ensures compliance with data privacy regulations such as GDPR and CCPA, giving users the ability to request and delete personal data when necessary. [...] When team members change roles or leave the organization, ensure that their access to private projects and data is revoked.\n    Use the audit log to ensure no unauthorized data sharing has occurred.\n\nConclusion\n\nMidjourney provides comprehensive privacy controls that allow you to maintain complete control over your data. By configuring these settings, you can ensure that your sensitive information remains private and secure, while staying compliant with global data privacy regulations. [...] Call to Action: Take control of your data privacy with Midjourney's advanced privacy controls. Get started now.\n\nInternal Links:\n\n Security Features\n User Roles and Permissions\n\nExternal Links:\n\n Understanding GDPR Compliance\n\nSep 9, 2024\n\n3 min read\n\n0\n\n40\n\n0\n\n Facebook\n LinkedIn\n Pinterest\n X (Twitter)\n\n## Related Posts\n\n## How to Refine Midjourney Prompts for Stunning Images\n\n## Untitled Article\n\n## Make Your Videos Pop: Simple Steps for Engaging Instagram Reels",
+          "score": 0.90692574,
+          "source": "web"
+        },
+        {
+          "title": "Privacy Policy - Midjourney",
+          "url": "https://midjourney.blog/privacy-policy/",
+          "content": "10. Your Data Protection Rights Under General Data Protection Regulation (GDPR)\n\nIf you are a resident of the European Union (EU) and European Economic Area (EEA), you have certain data protection rights, covered by GDPR.\n\nWe aim to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data. [...] We will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies. [...] Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.\n\nMidjourney Blog PVT LTD will take all the steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organisation or a country unless there are adequate controls in place including the security of your data and other personal information.",
+          "score": 0.8325776,
+          "source": "web"
+        },
+        {
+          "title": "Why I filed a GDPR complaint against Midjourney - Tim Boucher",
+          "url": "https://www.timboucher.ca/2023/05/why-i-filed-a-gdpr-complaint-against-midjourney/",
+          "content": "As a privacy professional with certifications in GDPR compliance, I find this pretty abhorrent as a practice. If privacy is indeed a human right (I believe it is), then it is reprehensible to only offer it for sale to those willing and able to pay the highest price for it.\n\nHence, I took my frustration on this matter to multiple Data Protection Authorities in the EU, after receiving no response from Midjourney staff about any of this over several months. [...] One of the articles I often come back to is Art. 25, Data Protect by Design & By Default, one of whose clauses reads:\n\n> “In particular, such measures shall ensure that by default personal data are not made accessible without the individual’s intervention to an indefinite number of natural persons.” [...] I’m kind of an asshole about privacy. Which is why when GDPR came out, I was all over it. It’s not perfect by any means as regulation (let alone enforcement), but it’s a strong step in the right direction.\n\nWhich is why it annoys me so much when companies don’t follow it. Even though I’m not an EU resident/citizen, I’m a stickler for it, because for the most part, the principles enshrined in it also just make good product sense.",
+          "score": 0.7539928,
+          "source": "web"
+        },
+        {
+          "title": "Midjourney - Basic Privacy Report",
+          "url": "https://privacy.commonsense.org/privacy-report/Midjourney",
+          "content": "| Statute | Basic Score | Full Score |\n --- \n| California Online Privacy Protection Act (CalOPPA) | 79 | NA |\n| Children's Online Privacy Protection Act (COPPA) | 55 | NA |\n| Family Educational Rights and Privacy Act (FERPA) | 56 | NA |\n| Student Online Personal Information Protection Act (SOPIPA) | 58 | NA |\n| General Data Protection Regulation (GDPR) | 60 | NA |\n\n### Privacy Policy Details\n\n#### 1: Transparency\n\n##### 1.1: Policy Version [...] This evaluation did not assess whether this product responds to \"Do Not Track\" or other opt-out mechanisms.\n This evaluation did not assess whether the company provides a method for users to opt-out from third-party tracking.\n\n#### 11: Compliance\n\n##### 11.1: Children Under 13 [...] | Concern | Basic Score | Full Score |\n --- \n| Data Collection: Protecting personal information | 50 | NA |\n| Data Sharing: Protecting data from third parties | 50 | NA |\n| Data Security: Protecting against unauthorized access | 0 | NA |\n| Data Rights: Controlling rights to data | 88 | NA |\n| Data Sold: Preventing sale of data | 75 | NA |\n| Data Safety: Promoting responsible use | 33 | NA |\n| Ads & Tracking: Prohibiting the exploitation of users' decision making process | 36 | NA |",
+          "score": 0.7336813,
+          "source": "web"
+        },
+        {
+          "title": "Data Deletion and Privacy FAQ - Midjourney",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/32084462534541-Data-Deletion-and-Privacy-FAQ",
+          "content": "# Data Deletion and Privacy FAQ ## Data Deletion To request to delete your account and data, visit . #### How long is personal data stored? #### Where is the personal data on Discord stored? #### Where is the personal data that Midjourney handles stored? #### Does Midjourney sell personal data? #### Who can submit a request to delete personal data? If you use or have used the Midjourney services, you can submit a request to delete your personal data. #### How long does a data deletion request take? <% children.forEach(function(child, index) { %>* <% if (child.title === 'On Web') { %> <% children.forEach(function(child, index) { %> <% if (section.articles.length) { %> <% section.articles.forEach(function(article) { %>+ <%= article.title %>",
+          "score": 0.42792314,
+          "source": "web"
+        }
+      ],
+      "service_name": "Midjourney"
+    }
+  },
+  "risk_assessments": {
+    "DALL-E": {
+      "fairness": {
+        "score": 3,
+        "description": "DALL-E demonstrates a commitment to addressing fairness and bias issues, but there are notable areas requiring improvement. The service has faced criticism for generating biased images, particularly concerning gender and racial stereotypes. OpenAI has implemented measures to mitigate bias, such as filtering systems and ongoing model improvements, but challenges remain in ensuring equal performance across diverse demographic groups. The known issues with bias in image generation, such as the sexualization of women of color and stereotypical depictions of professions, indicate that while efforts are being made, they are not yet fully effective. OpenAI's transparency about these issues and their efforts to address them are positive, but the persistence of bias suggests that further action is needed to fully comply with fairness standards.",
+        "evidence": [
+          "DALL-E 2 Creates Incredible Images—and Biased Ones You Don't - Wired",
+          "Bias & Fairness in AI Models - Deep Dive - Contrary Research",
+          "Rendering misrepresentation: Diversity failures in AI image generation - Brookings"
+        ],
+        "guideline_compliance": {
+          "EU AI Act": "부분준수 - OpenAI는 편향성 문제를 인식하고 있으며, 이를 완화하기 위한 조치를 취하고 있지만, 다양한 인구 집단에 대한 동등한 성능을 보장하는 데는 한계가 있음.",
+          "UNESCO": "부분준수 - OpenAI는 공정성과 투명성을 강조하고 있지만, 실제 구현에서의 편향 문제는 여전히 존재.",
+          "OECD": "부분준수 - OpenAI는 AI의 공정성을 개선하기 위한 노력을 기울이고 있으나, 편향성 문제는 완전히 해결되지 않음."
+        },
+        "reasoning": "DALL-E receives a score of 3 due to its efforts to address fairness and bias, such as implementing filtering systems and transparency in acknowledging biases. However, the persistence of bias in generated images, especially regarding gender and racial stereotypes, indicates that while foundational steps have been taken, they are not yet sufficient to meet high standards of fairness. The service needs to enhance its bias mitigation strategies and ensure more equitable performance across diverse demographic groups to improve its score.",
+        "risks_identified": [
+          "Gender and racial bias in image generation",
+          "Stereotypical depictions of professions"
+        ],
+        "strengths": [
+          "Transparency in acknowledging biases and efforts to address them",
+          "Implementation of filtering systems to mitigate inappropriate content"
+        ],
+        "risk_level": "중간",
+        "automated_checks": {
+          "checklist_score": 5.0,
+          "passed_checks": 3,
+          "total_checks": 3,
+          "passed_items": [
+            "편향성 테스트",
+            "공정성 평가",
+            "다양성 고려"
+          ]
+        }
+      },
+      "privacy": {
+        "score": 3,
+        "description": "DALL-E demonstrates a moderate level of compliance with privacy guidelines, particularly in relation to GDPR. OpenAI has implemented measures to ensure data protection, such as not using API data for model training and allowing users to opt out of data usage for non-API services. However, the service relies on large datasets sourced from the internet, which may include personal data, raising concerns about data minimization and purpose limitation. While OpenAI provides transparency about its data practices, the potential for privacy risks remains due to the scale and nature of data used. The service's compliance with GDPR is indicated by its efforts to inform users and provide opt-out options, but the extent of data minimization and purpose limitation needs further clarity.",
+        "evidence": [
+          "OpenAI's consumer privacy policy states that data from API services is not used for training (source: OpenAI Consumer Privacy page).",
+          "Users can opt out of having their data used for improving non-API services (source: OpenAI Consumer Privacy page).",
+          "DALL-E uses large datasets from the internet, which may include personal data, raising potential GDPR compliance issues (source: OpenAI's GDPR investigations and Data Privacy in the AI era)."
+        ],
+        "guideline_compliance": {
+          "EU AI Act": "부분준수 - OpenAI has measures for GDPR compliance, but data minimization and purpose limitation require further clarity.",
+          "UNESCO": "부분준수 - Transparency and user control are addressed, but comprehensive data protection measures are not fully detailed.",
+          "OECD": "부분준수 - Efforts in transparency and accountability are evident, but data privacy practices need more robust implementation."
+        },
+        "reasoning": "The score of 3 reflects that DALL-E meets basic privacy requirements but has areas needing improvement. OpenAI's transparency and user control measures are positive, yet the reliance on large datasets from the internet poses potential privacy risks. The service partially complies with GDPR, but further steps are needed to ensure full compliance with data minimization and purpose limitation principles. The potential inclusion of personal data in training datasets is a significant concern that needs addressing to enhance privacy protection.",
+        "risks_identified": [
+          "Potential inclusion of personal data in training datasets.",
+          "Unclear data minimization and purpose limitation practices."
+        ],
+        "strengths": [
+          "Transparency in data usage and user control options.",
+          "Efforts to comply with GDPR through opt-out mechanisms."
+        ],
+        "risk_level": "중간",
+        "automated_checks": {
+          "checklist_score": 3.0,
+          "passed_checks": 3,
+          "total_checks": 5,
+          "passed_items": [
+            "개인정보처리방침",
+            "GDPR/법규 준수",
+            "동의 획득"
+          ]
+        }
+      },
+      "transparency": {
+        "score": 4,
+        "description": "DALL-E demonstrates a high level of transparency in its operations, aligning with many of the transparency requirements outlined in the EU AI Act, UNESCO, and OECD guidelines. OpenAI provides detailed technical documentation and research papers that explain the model's architecture, training data, and capabilities. This openness helps users and stakeholders understand the system's workings and limitations. However, while OpenAI has made efforts to address biases and improve transparency, some areas, such as the detailed decision-making processes of the model, remain less transparent to the general public. The known issues of bias in image generation, particularly regarding gender and race, highlight the need for ongoing transparency improvements.",
+        "evidence": [
+          "OpenAI's technical documentation and research papers on DALL-E, which are publicly available (source: OpenAI website).",
+          "Public policies and user guidelines that emphasize transparency and ethical use (source: OpenAI's ethics guidelines).",
+          "External reviews and critiques highlighting both the strengths and areas for improvement in transparency (source: Wired, Brookings)."
+        ],
+        "guideline_compliance": {
+          "EU AI Act": "준수 - OpenAI provides clear documentation and transparency about the AI system's use and functionality.",
+          "UNESCO": "부분준수 - While OpenAI emphasizes transparency, the complexity of the model's decision-making process could be more accessible to non-experts.",
+          "OECD": "준수 - OpenAI's transparency efforts align with OECD principles, particularly in providing information about the AI system's capabilities and limitations."
+        },
+        "reasoning": "The score of 4 reflects OpenAI's strong commitment to transparency through detailed documentation and public engagement. The company has made significant strides in making the workings of DALL-E accessible to a broad audience, which is crucial for building trust. However, the complexity of the model and the ongoing challenges with bias suggest room for improvement, particularly in making the decision-making processes more understandable to non-experts.",
+        "risks_identified": [
+          "Bias in image generation, particularly regarding gender and race.",
+          "Complex decision-making processes that are not fully transparent to all users."
+        ],
+        "strengths": [
+          "Comprehensive technical documentation and research publications.",
+          "Active efforts to address and reduce biases in the model."
+        ],
+        "risk_level": "낮음",
+        "automated_checks": {
+          "checklist_score": 3.8,
+          "passed_checks": 3,
+          "total_checks": 4,
+          "passed_items": [
+            "AI 사용 명시",
+            "설명가능성",
+            "알고리즘 공개"
+          ]
+        }
+      },
+      "accountability": {
+        "score": 4,
+        "description": "DALL-E demonstrates a strong commitment to accountability and governance, aligning with many aspects of the EU AI Act, UNESCO, and OECD guidelines. OpenAI has established a clear governance structure with an AI ethics and policy team overseeing ethical use. The service includes internal audits and external expert reviews to ensure fairness and safety, which aligns with the EU AI Act's requirement for a clear responsibility framework and post-market monitoring. OpenAI's transparency in publishing technical documents and research findings supports accountability, as does their engagement with stakeholders through user feedback and expert consultations. However, known issues such as bias in image generation indicate areas for improvement, particularly in reducing racial and gender biases. While OpenAI is actively working on these issues, the presence of such biases suggests that further enhancements are needed to fully meet all accountability standards.",
+        "evidence": [
+          "OpenAI's transparency through technical documentation and research publications: https://openai.com/index/dall-e/",
+          "Internal and external audits for fairness and safety: https://www.wired.com/story/dall-e-2-ai-text-image-bias-social-media/",
+          "Stakeholder engagement and user feedback mechanisms: https://openai.com/consumer-privacy/"
+        ],
+        "guideline_compliance": {
+          "EU AI Act": "준수 - OpenAI has a clear responsibility framework and conducts post-market monitoring.",
+          "UNESCO": "부분준수 - While OpenAI emphasizes transparency and stakeholder engagement, issues with bias indicate partial compliance.",
+          "OECD": "준수 - OpenAI aligns with OECD principles through transparency, stakeholder engagement, and efforts to improve fairness."
+        },
+        "reasoning": "The score of 4 reflects OpenAI's strong adherence to accountability principles, with robust governance and transparency practices. However, the presence of bias issues, despite ongoing efforts to address them, prevents a perfect score. OpenAI's proactive measures in auditing and stakeholder engagement are commendable, but the need for further bias reduction remains a critical area for improvement.",
+        "risks_identified": [
+          "Bias in image generation related to race and gender.",
+          "Potential misuse of generated images without proper oversight."
+        ],
+        "strengths": [
+          "Strong governance and oversight by an AI ethics team.",
+          "Transparency in operations and stakeholder engagement."
+        ],
+        "risk_level": "낮음",
+        "automated_checks": {
+          "checklist_score": 5.0,
+          "passed_checks": 3,
+          "total_checks": 3,
+          "passed_items": [
+            "책임자 명시",
+            "감사 체계",
+            "거버넌스"
+          ]
+        }
+      },
+      "safety": {
+        "score": 3,
+        "description": "DALL-E, developed by OpenAI, is a text-to-image generation model that has shown significant advancements in creative image generation. However, safety concerns arise primarily from the model's potential biases and the ethical implications of its outputs. The model has been reported to produce biased images, particularly in terms of gender and racial stereotypes, which poses a risk to its safe deployment in sensitive applications. OpenAI has implemented some safety measures, such as content filtering and user feedback mechanisms, to mitigate these issues. However, the presence of known biases indicates that further improvements are necessary to ensure the model's safety and compliance with ethical guidelines. Additionally, while OpenAI has made efforts to be transparent about the model's limitations and has engaged in stakeholder feedback, the model's safety in terms of cybersecurity and robustness against misuse remains a concern.",
+        "evidence": [
+          "DALL-E 2's bias issues: Wired article highlights racial and gender biases in generated images (source: Wired).",
+          "OpenAI's transparency and documentation efforts: OpenAI's official website provides detailed technical documentation (source: OpenAI).",
+          "Safety measures like content filtering: OpenAI's use of filtering systems to prevent inappropriate content generation (source: OpenAI)."
+        ],
+        "guideline_compliance": {
+          "EU AI Act": "부분준수 - While OpenAI has implemented some safety measures, the presence of biases indicates a need for further risk assessment and quality management.",
+          "UNESCO": "부분준수 - Efforts to reduce bias and improve transparency align with UNESCO principles, but existing biases suggest incomplete adherence.",
+          "OECD": "부분준수 - OpenAI's engagement with stakeholders and transparency efforts align with OECD principles, but bias issues indicate room for improvement."
+        },
+        "reasoning": "The score of 3 reflects that DALL-E meets basic safety requirements but has notable areas for improvement, particularly concerning bias and ethical implications. The model's transparency and stakeholder engagement are positive aspects, but the persistence of bias issues suggests that further efforts are needed to fully comply with international guidelines and ensure safe deployment. The model's safety measures, such as content filtering, are steps in the right direction, but the effectiveness of these measures in addressing all potential risks is not fully demonstrated.",
+        "risks_identified": [
+          "Bias in generated images, particularly related to gender and race.",
+          "Potential misuse of generated images in harmful or unethical ways."
+        ],
+        "strengths": [
+          "Transparency in model documentation and limitations.",
+          "Engagement with stakeholders and incorporation of user feedback."
+        ],
+        "risk_level": "중간",
+        "automated_checks": {
+          "checklist_score": 3.3,
+          "passed_checks": 2,
+          "total_checks": 3,
+          "passed_items": [
+            "보안 조치",
+            "안전장치"
+          ]
+        }
+      },
+      "overall_score": 3.4,
+      "overall_risk_level": "중간"
+    },
+    "Midjourney": {
+      "fairness": {
+        "score": 2,
+        "description": "Midjourney, while innovative in its approach to AI-driven art generation, presents significant concerns regarding fairness and bias. The platform has known issues with bias in image generation, particularly in the representation of race and gender. This suggests a lack of comprehensive bias testing and mitigation strategies. Although Midjourney is committed to improving model fairness, there is no clear evidence of systematic bias testing or public disclosure of such efforts. The lack of detailed ethical guidelines and transparency in model parameters further complicates the assessment of its fairness. The platform does not appear to fully comply with the EU AI Act's requirements for bias risk assessment and mitigation, nor does it provide evidence of representative dataset usage or diverse demographic testing.",
+        "evidence": [
+          "Known issues with bias in image generation, particularly in race and gender representation (source: service analysis).",
+          "Lack of public disclosure on bias testing and mitigation strategies (source: ethics aspects).",
+          "Moderate transparency level with no specific details on ethical guidelines (source: ethics aspects)."
+        ],
+        "guideline_compliance": {
+          "EU AI Act": "미준수 - Midjourney lacks evidence of bias risk assessment and mitigation, and there is no indication of diverse demographic testing.",
+          "UNESCO": "미준수 - The platform does not provide sufficient evidence of efforts to ensure fairness and inclusivity.",
+          "OECD": "미준수 - There is a lack of transparency and accountability in addressing bias and fairness issues."
+        },
+        "reasoning": "Midjourney receives a score of 2 due to its significant shortcomings in addressing fairness and bias. The platform has known issues with biased outputs and lacks transparency in its efforts to mitigate these biases. There is no evidence of systematic bias testing or public disclosure of such efforts, which are critical for compliance with international guidelines. The absence of detailed ethical guidelines and transparency in model parameters further undermines its fairness. These factors collectively indicate a need for substantial improvements to meet fairness standards.",
+        "risks_identified": [
+          "Bias in image generation, particularly in race and gender representation.",
+          "Lack of transparency and public disclosure on bias testing and mitigation strategies."
+        ],
+        "strengths": [
+          "Commitment to expanding creative possibilities through AI.",
+          "Efforts to improve model fairness, although not well-documented."
+        ],
+        "risk_level": "높음",
+        "automated_checks": {
+          "checklist_score": 5.0,
+          "passed_checks": 3,
+          "total_checks": 3,
+          "passed_items": [
+            "편향성 테스트",
+            "공정성 평가",
+            "다양성 고려"
+          ]
+        }
+      },
+      "privacy": {
+        "score": 3,
+        "description": "Midjourney demonstrates a moderate level of privacy protection. The platform complies with GDPR, allowing users to request data deletion and manage their personal data, as evidenced by their privacy policy. However, there are concerns about the transparency of data handling practices and the lack of detailed information on data minimization and purpose limitation. Additionally, there have been user complaints regarding the handling of personal data, indicating potential gaps in privacy practices. The absence of a detailed data protection impact assessment further highlights areas for improvement.",
+        "evidence": [
+          "Midjourney's privacy policy outlines GDPR compliance, including data deletion rights (source: https://midjourney.blog/privacy-policy/).",
+          "User complaints about GDPR compliance issues have been documented (source: https://www.timboucher.ca/2023/05/why-i-filed-a-gdpr-complaint-against-midjourney/).",
+          "Midjourney provides privacy controls for data management (source: https://www.titanxt.io/post/privacy-controls-in-midjourney)."
+        ],
+        "guideline_compliance": {
+          "EU AI Act": "부분준수 - GDPR 준수는 명시되어 있으나, 데이터 최소화 및 목적 제한에 대한 구체적 증거 부족.",
+          "UNESCO": "부분준수 - 개인정보 보호에 대한 기본적인 조치는 있으나, 투명성 및 책임성 강화 필요.",
+          "OECD": "부분준수 - 개인정보 보호 조치는 있으나, 데이터 관리 및 투명성에 대한 추가적인 개선 필요."
+        },
+        "reasoning": "Midjourney receives a score of 3 due to its basic compliance with GDPR and provision of privacy controls. However, the platform lacks comprehensive transparency in data handling and has faced user complaints regarding privacy practices. Improvements are needed in demonstrating data minimization and purpose limitation, as well as conducting a thorough data protection impact assessment. These factors contribute to a score that reflects basic compliance but highlights areas for enhancement.",
+        "risks_identified": [
+          "Lack of transparency in data handling practices.",
+          "User complaints regarding GDPR compliance."
+        ],
+        "strengths": [
+          "Compliance with GDPR, allowing user data deletion requests.",
+          "Provision of privacy controls for data management."
+        ],
+        "risk_level": "중간",
+        "automated_checks": {
+          "checklist_score": 4.0,
+          "passed_checks": 4,
+          "total_checks": 5,
+          "passed_items": [
+            "개인정보처리방침",
+            "GDPR/법규 준수",
+            "데이터 삭제",
+            "동의 획득"
+          ]
+        }
+      },
+      "transparency": {
+        "score": 3,
+        "description": "Midjourney demonstrates a moderate level of transparency in its AI operations. The platform provides basic information about its capabilities and limitations, such as the use of Generative Adversarial Networks (GANs) for image generation and its Discord-based interface. However, it lacks detailed disclosure of its decision-making processes and specific model parameters, which are crucial for full transparency. While Midjourney complies with general data protection regulations, it does not provide comprehensive public documentation or technical details that would allow users to fully understand the AI's decision-making logic. Additionally, the absence of a dedicated AI ethics team and a formal audit process further limits transparency.",
+        "evidence": [
+          "Midjourney maintains a moderate level of transparency, providing users with basic information about its capabilities and limitations. (Source: Service Analysis)",
+          "Specific model parameters are not disclosed, and the GAN architecture suggests a complex interplay between generator and discriminator networks. (Source: Technical Details)",
+          "There is no public information on formal audit processes, but internal reviews are assumed to ensure compliance with ethical standards. (Source: Governance)"
+        ],
+        "guideline_compliance": {
+          "EU AI Act": "부분준수 - Midjourney informs users about AI usage and provides some operational details but lacks comprehensive documentation and decision logic transparency.",
+          "UNESCO": "부분준수 - The service aligns with general ethical principles but lacks detailed transparency and explanation of AI operations.",
+          "OECD": "부분준수 - While Midjourney addresses basic transparency, it does not fully meet the OECD's emphasis on explainability and accountability."
+        },
+        "reasoning": "The score of 3 reflects that Midjourney meets basic transparency requirements but falls short in providing detailed explanations of its AI systems. The lack of specific model parameters and decision-making logic limits users' understanding of how the AI functions, which is crucial for building trust. While the platform complies with data protection regulations, the absence of detailed public documentation and a formal audit process indicates room for improvement.",
+        "risks_identified": [
+          "Lack of detailed explanation of decision-making processes.",
+          "Absence of public documentation on model parameters and audit processes."
+        ],
+        "strengths": [
+          "Basic information about AI capabilities and limitations is provided.",
+          "Compliance with general data protection regulations."
+        ],
+        "risk_level": "중간",
+        "automated_checks": {
+          "checklist_score": 2.5,
+          "passed_checks": 2,
+          "total_checks": 4,
+          "passed_items": [
+            "AI 사용 명시",
+            "알고리즘 공개"
+          ]
+        }
+      },
+      "accountability": {
+        "score": 3,
+        "description": "Midjourney shows a moderate level of accountability in its AI governance structure. While it complies with general data protection regulations like GDPR, there is a lack of detailed public information on its internal audit processes and the specific roles and responsibilities related to AI ethics and governance. The platform does not have a publicly disclosed dedicated AI ethics team, and its transparency about the model's parameters and decision-making processes is limited. The known issues of bias in image generation, particularly in representing race and gender, highlight the need for more robust accountability measures. Despite these challenges, Midjourney has implemented content moderation and community guidelines to ensure ethical use, and it engages with user feedback to improve its platform.",
+        "evidence": [
+          "Midjourney's compliance with GDPR is mentioned, but details on specific measures are limited (source: Privacy Policy - Midjourney).",
+          "The platform's known issues with bias in image generation are documented (source: When AI Mirrors Our Flaws: Unveiling Bias in MidJourney - Medium).",
+          "Midjourney's moderate level of transparency is noted, but lacks detailed audit and governance information (source: service analysis)."
+        ],
+        "guideline_compliance": {
+          "EU AI Act": "부분준수 - While Midjourney complies with data protection regulations, it lacks detailed documentation on responsibility allocation and post-market monitoring.",
+          "UNESCO": "부분준수 - The platform follows general ethical principles but lacks explicit guidelines and transparency in its AI ethics framework.",
+          "OECD": "부분준수 - Midjourney engages with user feedback but does not provide comprehensive information on accountability and governance structures."
+        },
+        "reasoning": "Midjourney receives a score of 3 due to its basic compliance with data protection regulations and efforts to engage with user feedback. However, the lack of detailed governance structures, transparency in AI decision-making, and specific measures to address known biases prevent a higher score. The platform needs to improve its accountability mechanisms by providing clearer documentation on responsibility allocation, audit processes, and ethical guidelines.",
+        "risks_identified": [
+          "Bias in image generation, particularly in race and gender representation.",
+          "Lack of detailed governance and accountability structures."
+        ],
+        "strengths": [
+          "Compliance with general data protection regulations like GDPR.",
+          "Engagement with user feedback to improve platform features."
+        ],
+        "risk_level": "중간",
+        "automated_checks": {
+          "checklist_score": 5.0,
+          "passed_checks": 3,
+          "total_checks": 3,
+          "passed_items": [
+            "책임자 명시",
+            "감사 체계",
+            "거버넌스"
+          ]
+        }
+      },
+      "safety": {
+        "score": 3,
+        "description": "Midjourney demonstrates a moderate level of safety and security in its AI system. The platform employs content moderation and community guidelines to prevent misuse, which aligns with basic safety measures. However, there are significant concerns regarding bias in image generation, particularly in the representation of race and gender, which poses a risk to the fairness and inclusivity of the outputs. The platform's transparency about its model's capabilities and limitations is moderate, but there is a lack of detailed documentation on cybersecurity measures and formal audit processes. The absence of specific ethical guidelines and a dedicated AI ethics team further indicates areas for improvement in governance and safety assurance.",
+        "evidence": [
+          "Bias in image generation, particularly in the representation of race and gender, is a known issue (source: Medium article on bias in Midjourney).",
+          "Midjourney's content moderation and community guidelines are in place to ensure ethical use (source: service analysis).",
+          "Moderate transparency level with basic information about capabilities and limitations (source: service analysis)."
+        ],
+        "guideline_compliance": {
+          "EU AI Act": "부분준수 - Midjourney has basic safety measures but lacks detailed cybersecurity and audit processes.",
+          "UNESCO": "부분준수 - Efforts to reduce bias are noted, but significant issues remain.",
+          "OECD": "부분준수 - Basic transparency and user engagement are present, but more robust governance is needed."
+        },
+        "reasoning": "The score of 3 reflects that while Midjourney meets basic safety requirements through content moderation and community guidelines, it falls short in addressing bias and lacks comprehensive cybersecurity measures. The absence of detailed ethical guidelines and formal audits indicates a need for improvement to align with high safety standards.",
+        "risks_identified": [
+          "Bias in image generation related to race and gender.",
+          "Lack of detailed cybersecurity measures and formal audits."
+        ],
+        "strengths": [
+          "Content moderation and community guidelines to prevent misuse.",
+          "Moderate transparency about model capabilities and limitations."
+        ],
+        "risk_level": "중간",
+        "automated_checks": {
+          "checklist_score": 3.3,
+          "passed_checks": 2,
+          "total_checks": 3,
+          "passed_items": [
+            "보안 조치",
+            "안전장치"
+          ]
+        }
+      },
+      "overall_score": 2.8,
+      "overall_risk_level": "중간"
+    }
+  },
+  "improvement_suggestions": {
+    "DALL-E": [
+      {
+        "dimension": "fairness",
+        "current_score": 3,
+        "target_score": 4,
+        "priority": "중",
+        "current_issues": [
+          "Gender and racial bias in image generation",
+          "Stereotypical depictions of professions"
+        ],
+        "improvements": [
+          {
+            "title": "Enhanced Bias Mitigation Techniques",
+            "description": "Implement advanced bias detection and correction algorithms to reduce gender and racial biases in generated images.",
+            "implementation_steps": [
+              "Conduct a comprehensive audit of existing datasets to identify and quantify biases.",
+              "Develop and integrate bias correction algorithms that adjust outputs based on identified biases.",
+              "Regularly update and test the model with diverse datasets to ensure ongoing fairness."
+            ],
+            "expected_impact": "Reduction in biased image outputs, leading to more equitable representation across demographics.",
+            "success_metrics": [
+              "Decrease in biased outputs by 30%",
+              "Improved user satisfaction scores"
+            ],
+            "timeline": "6 months",
+            "resources_needed": "Data scientists, bias experts, computational resources",
+            "guideline_reference": "EU AI Act, UNESCO, OECD"
+          }
+        ]
+      },
+      {
+        "dimension": "privacy",
+        "current_score": 3,
+        "target_score": 4,
+        "priority": "중",
+        "current_issues": [
+          "Potential inclusion of personal data in training datasets.",
+          "Unclear data minimization and purpose limitation practices."
+        ],
+        "improvements": [
+          {
+            "title": "Data Minimization and Purpose Limitation Framework",
+            "description": "Establish a clear framework for data minimization and purpose limitation to ensure compliance with GDPR and other privacy standards.",
+            "implementation_steps": [
+              "Review and categorize all data sources to identify personal data.",
+              "Implement data filtering mechanisms to exclude personal data from training datasets.",
+              "Develop clear documentation and user guidelines on data usage and purpose limitation."
+            ],
+            "expected_impact": "Enhanced compliance with privacy regulations and reduced risk of personal data misuse.",
+            "success_metrics": [
+              "100% compliance with GDPR",
+              "Reduction in privacy-related complaints"
+            ],
+            "timeline": "4 months",
+            "resources_needed": "Legal experts, data engineers, compliance officers",
+            "guideline_reference": "GDPR, EU AI Act, OECD"
+          }
+        ]
+      },
+      {
+        "dimension": "safety",
+        "current_score": 3,
+        "target_score": 4,
+        "priority": "중",
+        "current_issues": [
+          "Bias in generated images, particularly related to gender and race.",
+          "Potential misuse of generated images in harmful or unethical ways."
+        ],
+        "improvements": [
+          {
+            "title": "Robust Safety and Misuse Prevention Protocols",
+            "description": "Strengthen safety protocols and develop misuse prevention strategies to ensure ethical use of generated images.",
+            "implementation_steps": [
+              "Enhance content filtering systems to detect and block potentially harmful outputs.",
+              "Develop user guidelines and terms of service that clearly define acceptable use cases.",
+              "Implement a monitoring system to detect and respond to misuse of generated images."
+            ],
+            "expected_impact": "Increased safety and reduced risk of unethical use of generated images.",
+            "success_metrics": [
+              "Reduction in reported misuse incidents by 40%",
+              "Increased compliance with ethical guidelines"
+            ],
+            "timeline": "5 months",
+            "resources_needed": "Safety engineers, legal advisors, monitoring tools",
+            "guideline_reference": "EU AI Act, UNESCO, OECD"
+          }
+        ]
+      }
+    ],
+    "Midjourney": [
+      {
+        "dimension": "fairness",
+        "current_score": 2,
+        "target_score": 4,
+        "priority": "상",
+        "current_issues": [
+          "Bias in image generation, particularly in race and gender representation.",
+          "Lack of transparency and public disclosure on bias testing and mitigation strategies."
+        ],
+        "improvements": [
+          {
+            "title": "Comprehensive Bias Testing and Mitigation Strategy",
+            "description": "Develop and implement a comprehensive strategy for bias testing and mitigation, focusing on race and gender representation in image generation.",
+            "implementation_steps": [
+              "Conduct an audit of current datasets to identify sources of bias.",
+              "Develop and integrate a bias detection tool to regularly assess outputs.",
+              "Collaborate with diverse demographic groups to ensure inclusive representation."
+            ],
+            "expected_impact": "Reduction in biased outputs and improved fairness in image generation.",
+            "success_metrics": [
+              "Reduction in bias-related user complaints",
+              "Improved demographic representation in generated images"
+            ],
+            "timeline": "6 months",
+            "resources_needed": "Data scientists, diversity consultants, computational resources",
+            "guideline_reference": "EU AI Act, UNESCO guidelines on fairness and inclusivity"
+          },
+          {
+            "title": "Public Disclosure of Bias Mitigation Efforts",
+            "description": "Increase transparency by publicly disclosing bias testing methodologies and mitigation strategies.",
+            "implementation_steps": [
+              "Document current and future bias testing methodologies.",
+              "Publish regular reports on bias mitigation efforts and outcomes.",
+              "Engage with the community through webinars and Q&A sessions to discuss bias mitigation."
+            ],
+            "expected_impact": "Enhanced trust and transparency regarding bias mitigation efforts.",
+            "success_metrics": [
+              "Number of public reports published",
+              "Community engagement metrics"
+            ],
+            "timeline": "3 months",
+            "resources_needed": "Communication team, technical writers",
+            "guideline_reference": "OECD guidelines on transparency and accountability"
+          }
+        ]
+      },
+      {
+        "dimension": "privacy",
+        "current_score": 3,
+        "target_score": 4,
+        "priority": "중",
+        "current_issues": [
+          "Lack of transparency in data handling practices.",
+          "User complaints regarding GDPR compliance."
+        ],
+        "improvements": [
+          {
+            "title": "Enhanced Data Handling Transparency",
+            "description": "Improve transparency in data handling by providing detailed information on data minimization and purpose limitation.",
+            "implementation_steps": [
+              "Conduct a data audit to identify all data collection and processing activities.",
+              "Update privacy policy with detailed descriptions of data handling practices.",
+              "Implement a user-friendly dashboard for users to view and manage their data."
+            ],
+            "expected_impact": "Increased user trust and reduced complaints related to data handling.",
+            "success_metrics": [
+              "Decrease in GDPR-related complaints",
+              "User satisfaction with data management tools"
+            ],
+            "timeline": "4 months",
+            "resources_needed": "Legal experts, data privacy officers, user interface designers",
+            "guideline_reference": "GDPR, OECD guidelines on data protection"
+          }
+        ]
+      },
+      {
+        "dimension": "transparency",
+        "current_score": 3,
+        "target_score": 4,
+        "priority": "중",
+        "current_issues": [
+          "Lack of detailed explanation of decision-making processes.",
+          "Absence of public documentation on model parameters and audit processes."
+        ],
+        "improvements": [
+          {
+            "title": "Detailed Documentation of AI Decision-Making",
+            "description": "Provide detailed documentation of AI decision-making processes and model parameters to enhance transparency.",
+            "implementation_steps": [
+              "Document the decision-making process and model parameters in a technical whitepaper.",
+              "Publish the whitepaper on the company's website and update it regularly.",
+              "Host technical workshops to explain the AI decision-making process to interested stakeholders."
+            ],
+            "expected_impact": "Improved understanding and trust in AI operations among users and stakeholders.",
+            "success_metrics": [
+              "Number of downloads of the technical whitepaper",
+              "Feedback from technical workshops"
+            ],
+            "timeline": "5 months",
+            "resources_needed": "AI engineers, technical writers, workshop facilitators",
+            "guideline_reference": "EU AI Act, OECD guidelines on transparency and explainability"
+          }
+        ]
+      }
+    ]
+  },
+  "comparison_analysis": "## 종합적인 비교 분석\n\n### 1. 전체 평가 순위\n- **DALL-E**: 종합 점수 3.4, 전체 위험 수준 \"중간\"\n- **Midjourney**: 종합 점수 2.8, 전체 위험 수준 \"중간\"\n\nDALL-E가 Midjourney보다 전반적으로 높은 점수를 받았습니다. 이는 DALL-E가 여러 윤리적 차원에서 더 나은 성과를 보였음을 나타냅니다.\n\n### 2. 차원별 비교\n\n#### 공정성\n- **DALL-E**: 점수 3. DALL-E는 편향성 문제를 인식하고 이를 완화하기 위한 조치를 취하고 있지만, 여전히 성별 및 인종 편향이 존재합니다. OpenAI는 투명성을 유지하고 있으며, 필터링 시스템을 통해 부적절한 콘텐츠를 줄이려는 노력을 하고 있습니다.\n- **Midjourney**: 점수 2. Midjourney는 인종 및 성별 표현에서 편향 문제가 두드러지며, 체계적인 편향 테스트 및 완화 전략이 부족합니다. 공정성에 대한 명확한 가이드라인이 부족합니다.\n\n#### 개인정보 보호\n- **DALL-E**: 점수 3. GDPR 준수를 위해 데이터 보호 조치를 취하고 있지만, 데이터 최소화 및 목적 제한에 대한 명확성이 부족합니다.\n- **Midjourney**: 점수 3. GDPR 준수 및 사용자 데이터 삭제 요청을 허용하지만, 데이터 처리 관행의 투명성이 부족하고 사용자 불만이 제기되었습니다.\n\n#### 투명성\n- **DALL-E**: 점수 4. OpenAI는 기술 문서 및 연구 논문을 통해 높은 수준의 투명성을 유지하고 있습니다. 그러나 모델의 의사 결정 과정에 대한 설명은 여전히 복잡합니다.\n- **Midjourney**: 점수 3. 기본적인 정보는 제공하지만, 의사 결정 과정 및 모델 매개변수에 대한 세부 정보가 부족합니다.\n\n#### 책임성\n- **DALL-E**: 점수 4. 강력한 거버넌스 구조와 투명성을 통해 높은 책임성을 보여줍니다. 그러나 편향 문제는 여전히 개선이 필요합니다.\n- **Midjourney**: 점수 3. GDPR 준수 및 사용자 피드백을 수용하지만, 명확한 거버넌스 구조와 책임성에 대한 세부 정보가 부족합니다.\n\n#### 안전성\n- **DALL-E**: 점수 3. 편향 문제로 인해 안전성에 대한 우려가 있으며, 추가적인 개선이 필요합니다.\n- **Midjourney**: 점수 3. 콘텐츠 모더레이션 및 커뮤니티 가이드라인을 통해 기본적인 안전성을 유지하지만, 편향 문제와 사이버 보안 조치가 부족합니다.\n\n### 3. 모범 사례\n**DALL-E의 투명성**은 가장 우수한 사례로 꼽을 수 있습니다. OpenAI는 기술 문서와 연구 논문을 통해 모델의 구조와 기능을 명확히 설명하며, 이는 사용자 신뢰 구축에 기여합니다.\n\n### 4. 개선 필요 영역\n두 서비스 모두 **편향 문제**에서 개선이 필요합니다. 특히 인종 및 성별 표현에서의 편향은 공통적인 취약점으로, 더 체계적인 테스트와 완화 전략이 필요합니다.\n\n### 5. 산업 트렌드\nAI 윤리 수준은 점차 중요해지고 있으며, 투명성과 책임성에 대한 요구가 증가하고 있습니다. GDPR과 같은 규제 준수는 기본적인 요구사항이 되었으며, 공정성과 안전성에 대한 관심이 높아지고 있습니다.\n\n### 6. 차별화 요소\n- **DALL-E**: OpenAI의 투명성과 책임성에 대한 강력한 접근은 DALL-E의 차별화된 요소입니다. 기술 문서와 연구 논문을 통해 사용자가 모델의 기능을 이해할 수 있도록 돕습니다.\n- **Midjourney**: Midjourney는 AI를 통한 창의적 가능성 확장에 중점을 두고 있으며, 사용자 피드백을 통해 플랫폼을 개선하려는 노력을 기울이고 있습니다.\n\n이 분석은 각 서비스의 강점과 약점을 명확히 드러내며, 개선이 필요한 영역을 강조합니다. AI 윤리의 중요성이 증가하는 가운데, 이러한 평가 결과는 서비스 제공자들이 더 나은 윤리적 기준을 달성하는 데 기여할 것입니다."
+}
